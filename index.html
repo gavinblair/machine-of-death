@@ -114,40 +114,53 @@
 						<h2>Black Market</h2>
 					</div>
 					<div class="span8">
-						<p>Here is your hand from the Black Market:</p>
-						<ul>
-							{{#hand}}
-								<li>{{.}}</li>
-							{{/hand}}
-						</ul>
-						<a class="button-main button-block" onclick="app.planButton()">Make a Plan</a>
+						<p>
+							Here is your hand from the Black Market:
+							<ul class='hand'>
+								{{#hand}}
+									<li>{{.}}</li>
+								{{/hand}}
+							</ul>
+							<a class="button-main button-block" onclick="app.planButton()">Make a Plan</a>
+						</p>
 					</div>
 				</div>
 			</div>
 		</script>
 		<script id="planning" type="text/html">
 			{{>target}}
-			Prediction: {{>prediction}}
-			<ul>
-				{{#hand}}
-					<li>
-						{{.}}
-						<select>
-							<option>- Select Difficulty -</option>
-							<option value='2'>Difficulty 2</option>
-							<option value='2'>Difficulty 3</option>
-							<option value='2'>Difficulty 4</option>
-							<option value='2'>Difficulty 5</option>
-							<option value='2'>Difficulty 6</option>
-						</select>
-					</li>
-				{{/hand}}
-			</ul>
+			{{>prediction}}
+			<div class="container">
+				<div class="row">
+					<div class="span4">
+						<h2>Hand</h2>
+					</div>
+					<div class="span8">
+						<p>
+							<ul class='hand'>
+								{{#hand}}
+									<li>
+										{{.}}
+										<select>
+											<option>- Select Difficulty -</option>
+											<option value='2'>Difficulty 2</option>
+											<option value='2'>Difficulty 3</option>
+											<option value='2'>Difficulty 4</option>
+											<option value='2'>Difficulty 5</option>
+											<option value='2'>Difficulty 6</option>
+										</select>
+									</li>
+								{{/hand}}
+							</ul>
+						</p>
+					</div>
+				</div>
+			</div>
 			{{#hasBudget}}
 				You have items in your budget.
 				<button onClick="app.budgetButton()">Check out the budget</button>
 			{{/hasBudget}}
-			<button onclick="app.executeButton()">EXECUTE</button>
+			<a class="button-main button-block" onclick="app.executeButton()">EXECUTE</a>
 		</script>
 		<script id="budget" type="text/html">
 			
