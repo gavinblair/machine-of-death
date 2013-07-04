@@ -1,7 +1,7 @@
 body{
   text-align: center;
   margin: 0;
-  position: static;
+  position: absolute;
 }
 .span4{
   background: #0086C3;
