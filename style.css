@@ -2,6 +2,7 @@ body{
   text-align: center;
   margin: 0;
   position: absolute;
+  width: 100%;
 }
 .span4{
   background: #0086C3;
