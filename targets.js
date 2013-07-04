@@ -3739,7 +3739,6 @@ var targets = {
 		'PET',
 		'FALLING ICE',
 		'STAIRS',
-		'Blowing in the breeze, twisting in the',
 		'STAPLES',
 		'PAINT FUMES',
 		'PEN',

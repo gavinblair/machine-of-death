@@ -6,48 +6,58 @@ targets.js
 session.js
 gifts.js
 */
-var game = function(){
+var game = function(difficulty){
 	this.myBudget = new budget();
-
+	this.difficulty = difficulty;
 
 	//EVENTS
-	var startButton = function(){
+	this.startButton = function(){
 		//generate the game
-		this.newGame = new session(4);
+		this.newGame = new session(this.difficulty);
 
-		//next step: next target button
-
-
+		//show the game intro screen
+		document.body.innerHTML = ich.start({difficulty: this.difficulty});
 	};
-	var aboutButton = function(){
-
-	}
-	var nextTargetButton = function(){
-	//show the target
-	//next step: visit the black market
+	this.aboutButton = function(){
+		document.body.innerHTML = ich.about();
 	};
-
-	var marketButton = function(){
-	//show gifts
-
-	//next step: make the plan
+	this.backButton = function(){
+		document.body.innerHTML = ich.splash();
 	};
+	this.nextTargetButton = function(){
+		//show the target
+		this.target = this.newGame.missions.shift();
 
-	var planButton = function(){
-	//allow drag+drop reordering of gifts
-	//allow option to swap gifts with items from the budget
-	//allow setting difficulty of each gift
-
-	//next step: execute
+		//next step: visit the black market
+		document.body.innerHTML = ich.target({target: this.target, button:true});
+	};
+	this.predictionButton = function(){
+		document.body.innerHTML = ich.prediction({target: this.target, button:true});
+	};
+	this.marketButton = function(){
+		//show gifts
+		document.body.innerHTML = ich.blackmarket({hand: this.newGame.giftCards.hand});
 	};
 
-	var executeButton = function(){
+	this.planButton = function(){
+		//allow drag+drop reordering of gifts
+		//allow option to swap gifts with items from the budget
+		//allow setting difficulty of each gift
+
+		var hasBudget = false;
+		if(this.myBudget.length > 0) {
+			hasBudget = true;
+		}
+		document.body.innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: hasBudget});
+	};
+
+	this.executeButton = function(){
 	//start a 90 second timer if it hasn't already started
 
 	//show first/next gift, difficulty & roll button
 	};
 
-	var rollButton = function(step, difficulty){
+	this.rollButton = function(step, difficulty){
 	//get a random number between 1 and 6
 	//if number >= difficulty, pass
 	//otherwise fail
@@ -58,7 +68,7 @@ var game = function(){
 	//if fail, show regroup button
 	//if pass and this IS the third successful roll, win!
 	};
-	var regroupButton = function(){
+	this.regroupButton = function(){
 	//discard failed card
 	//draw a new gift card
 	//show timer
@@ -66,21 +76,21 @@ var game = function(){
 	//allow option to swap gifts with budget items
 	//next step: execute
 	};
-	var timerEnd = function(){
+	this.timerEnd = function(){
 	//time's up!
 	//have we executed the current target?
 	//if so, win!
 	//if not, lose!
 	};
-	var win = function(){
+	this.win = function(){
 	//if the timer is not up, enter aftermath!
 	//if this isn't the last target, nextTargetButton
 	//if it is, then win the whole game!
 	};
-	var lose = function(){
+	this.lose = function(){
 	//sorry, you lose.
 	};
-	var aftermathButton = function(){
+	this.aftermathButton = function(){
 	//if there are no available aftermaths to attempt, win()
 	//otherwise...
 	//still show timer
@@ -91,4 +101,4 @@ var game = function(){
 	};
 
 };
-var app = new game();
+var app = new game(4);

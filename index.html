@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script src="game.js"></script>
 		<script src="budget.js"></script>
 		<script src="targets.js"></script>
 		<script src="session.js"></script>
@@ -9,29 +8,33 @@
 		<script src="specialists.js"></script>
 		<script src="aftermath.js"></script>
 		<script src="timer.js"></script>
-		<script src="lib/ICanHaz.js"></script>
+		<script src="lib/ICanHaz.min.js"></script>
+		<script src="game.js"></script>
 		<script id="splash" type="text/html">
 			<img />
+			<p>ohai</p>
 			<button onclick="app.startButton()">New Game</button>
 			<button onclick="app.aboutButton()">About</button>
 		</script>
-		<script id="start" type="text/html">
-			<img />
-			<p>game intro</p>
-			<button onclick="app.nextTargetButton()">Get First Assignment</button>
-		</script>
 		<script id="about" type="text/html">
 			<p>by Gavin. The app, I mean, not the concept.</p>
-			<button onclick="app.backButton">Back</button>
+			<button onclick="app.backButton()">Back</button>
+		</script>
+		<script id="start" type="text/html">
+			<img />
+			<p>Your mission is to eliminate {{difficulty}} targets.</p>
+			<button onclick="app.nextTargetButton()">Get First Target</button>
 		</script>
 		<script id="target" type="text/html">
 			<p>
 				Name: {{target.firstName}} {{target.lastName}}<br />
-				{{target.excitedBy}}<br />
-				{{target.hinderedBy}}<br />
+				Excited By: {{target.excitedBy}}<br />
+				Hindered By: {{target.hinderedBy}}<br />
 				Location: {{target.location}}<br />
 			</p>
-			<button onclick="app.predictionButton()">Get Prediction</button>
+			{{#button}}
+				<button onclick="app.predictionButton()">Get Prediction</button>
+			{{/button}}
 		</script>
 		<script id="prediction" type="text/html">
 			<p>
@@ -45,21 +48,49 @@
 					Thankfully, your target does not know their prediction.
 				{{/target.knowsPrediction}}
 			</p>
-			<button onclick="app.marketButton">Visit Black Market</button>
+			{{#button}}
+				<button onclick="app.marketButton()">Visit Black Market</button>
+			{{/button}}
 		</script>
 		<script id="blackmarket" type="text/html">
-			
+			<ul>
+				{{#hand}}
+					<li>{{.}}</li>
+				{{/hand}}
+			</ul>
+			<button onclick="app.planButton()">Make a Plan</button>
 		</script>
 		<script id="planning" type="text/html">
+			{{>target}}
+			Prediction: {{>prediction}}
+			<ul>
+				{{#hand}}
+					<li>
+						{{.}}
+						<select>
+							<option>- Select Difficulty -</option>
+							<option value='2'>Difficulty 2</option>
+							<option value='2'>Difficulty 3</option>
+							<option value='2'>Difficulty 4</option>
+							<option value='2'>Difficulty 5</option>
+							<option value='2'>Difficulty 6</option>
+						</select>
+					</li>
+				{{/hand}}
+			</ul>
+			{{#hasBudget}}
+				You have items in your budget.
+				<button onClick="app.budgetButton()">Check out the budget</button>
+			{{/hasBudget}}
+			<button onclick="app.executeButton()">EXECUTE</button>
+		</script>
+		<script id="budget" type="text/html">
 			
 		</script>
 		<script id="execute" type="text/html">
 			
 		</script>
 		<script id="aftermath" type="text/html">
-			
-		</script>
-		<script id="budget" type="text/html">
 			
 		</script>
 		<script id="win" type="text/html">
@@ -69,6 +100,6 @@
 			
 		</script>
 	</head>
-	<body>
+	<body onload="document.body.innerHTML = ich.splash()">
 	</body>
 </html>
