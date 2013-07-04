@@ -63,9 +63,11 @@
 		<script id="target" type="text/html">
 			<div class="container">
 			  <div class="row">
-			    <div class="span4">
-			      <h2>Target</h2>
-			    </div>
+			  	{{#button}}
+					<div class="span4">
+						<h2>Target</h2>
+					</div>
+				{{/button}}
 			    <div class="span8">
 				<p>
 					<strong>Name:</strong> {{target.firstName}} {{target.lastName}}<br />
@@ -84,9 +86,11 @@
 		<script id="prediction" type="text/html">
 			<div class="container">
 				<div class="row">
-					<div class="span4">
-						<h2>Prediction</h2>
-					</div>
+					{{#button}}
+						<div class="span4">
+							<h2>Prediction</h2>
+						</div>
+					{{/button}}
 					<div class="span8">
 						<p>
 							<h2>{{target.prediction}}</h2>
@@ -129,9 +133,6 @@
 			{{>prediction}}
 			<div class="container">
 				<div class="row">
-					<div class="span4">
-						<h2>Hand</h2>
-					</div>
 					<div class="span8">
 						{{#hand}}
 							<p><a class="button-positive" onclick="app.changeDifficulty()">{{.}}<span class="count">2</span></a></p>
