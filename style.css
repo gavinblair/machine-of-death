@@ -1,0 +1,17 @@
+body{
+  text-align: center;
+}
+.span4{
+  background: #0086C3;
+  color: #fff;
+}
+h2 {
+  padding: 1em 0;
+}
+h1{
+  padding-top: .5em;
+  font-size: 40px
+}
+#bubble {
+  margin-bottom: 120px
+}
