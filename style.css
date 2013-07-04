@@ -1,6 +1,7 @@
 body{
   text-align: center;
   margin: 0;
+  position: static;
 }
 .span4{
   background: #0086C3;
