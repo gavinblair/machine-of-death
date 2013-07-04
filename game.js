@@ -51,7 +51,10 @@ var game = function(difficulty){
 		document.body.innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: hasBudget});
 	};
 	this.changeDifficulty = function(){
-		alert("ouch");
+		var oldnum = parseInt(this.children[0].innerHTML);
+		var newnum = oldnum + 1;
+		if(newnum > 6) { newnum = 2; }
+		this.children[0].innerHTML = newnum;
 	};
 	this.executeButton = function(){
 	//start a 90 second timer if it hasn't already started
