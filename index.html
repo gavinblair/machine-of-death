@@ -116,10 +116,10 @@
 					<div class="span8">
 						<p>
 							Here is your hand from the Black Market:
-							{{#hand}}
-								<br /><a class="button-positive">{{.}}</a>
-							{{/hand}}
 						</p>
+						{{#hand}}
+							<p><a class="button-positive">{{.}}</a></p>
+						{{/hand}}
 						<a class="button-main button-block" onclick="app.planButton()">Make a Plan</a>
 					</div>
 				</div>
@@ -134,11 +134,9 @@
 						<h2>Hand</h2>
 					</div>
 					<div class="span8">
-						<p>
-							{{#hand}}
-								<br /><a class="button-positive" onclick="app.changeDifficulty()">{{.}}<span class="count">2</span></a>
-							{{/hand}}
-						</p>
+						{{#hand}}
+							<p><a class="button-positive" onclick="app.changeDifficulty()">{{.}}<span class="count">2</span></a></p>
+						{{/hand}}
 					</div>
 				</div>
 			</div>
