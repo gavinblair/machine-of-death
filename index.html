@@ -28,8 +28,8 @@
 			      <img src="http://i.imgur.com/NmMMYHb.jpg" width="25%"> 
 			    </div>
 			  </div>
-			  <a onclick="app.startButton()" class="button-main button-block">New Game</a>
-			  <a onclick="app.aboutButton()" class="button button-block">About</a>
+			  <a ontouchstart="app.startButton()" class="button-main button-block">New Game</a>
+			  <a ontouchstart="app.aboutButton()" class="button button-block">About</a>
 			</div>
 		</script>
 		<script id="about" type="text/html">
@@ -42,7 +42,7 @@
 			      <p>
 				This app was created by <a href="http://twitter.com/gavinblair">@gavinblair</a>. <a href="http://machineofdeath.net/">Machine of Death</a> is not mine, however. I just really like it.
 			      </p>
-			      <a class="button-main button-block" onclick="app.backButton()">Back</a>
+			      <a class="button-main button-block" ontouchstart="app.backButton()">Back</a>
 			    </div>
 			  </div>
 			</div>
@@ -55,7 +55,7 @@
 			    </div>
 			    <div class="span8">
 			      <p>Your mission is to eliminate {{difficulty}} targets.</p>
-			      <a class="button-main button-block" onclick="app.nextTargetButton()">Get First Target</a>
+			      <a class="button-main button-block" ontouchstart="app.nextTargetButton()">Get First Target</a>
 			    </div>
 			  </div>
 			</div>
@@ -76,7 +76,7 @@
 					<strong>Location:</strong> {{target.location}}<br />
 				</p>
 				{{#button}}
-					<a class="button-main button-block" onclick="app.predictionButton()">Read Prediction</a>
+					<a class="button-main button-block" ontouchstart="app.predictionButton()">Read Prediction</a>
 				{{/button}}
 			    </div>
 			  </div>
@@ -104,7 +104,7 @@
 							{{/target.knowsPrediction}}
 						</p>
 						{{#button}}
-							<a class="button-main button-block" onclick="app.marketButton()">Visit Black Market</a>
+							<a class="button-main button-block" ontouchstart="app.marketButton()">Visit Black Market</a>
 						{{/button}}
 					</div>
 				</div>
@@ -123,7 +123,7 @@
 						{{#hand}}
 							<p><a class="button-positive">{{.}}</a></p>
 						{{/hand}}
-						<a class="button-main button-block" onclick="app.planButton()">Make a Plan</a>
+						<a class="button-main button-block" ontouchstart="app.planButton()">Make a Plan</a>
 					</div>
 				</div>
 			</div>
@@ -135,16 +135,16 @@
 				<div class="row">
 					<div class="span8">
 						{{#hand}}
-							<p><a class="button-positive" onclick="app.changeDifficulty(this)">{{.}}<span class="count">2</span></a></p>
+							<p><a class="button-positive" ontouchstart="app.changeDifficulty(this)">{{.}}<span class="count">2</span></a></p>
 						{{/hand}}
 					</div>
 				</div>
 			</div>
 			{{#hasBudget}}
 				You have items in your budget.
-				<button onClick="app.budgetButton()">Check out the budget</button>
+				<button ontouchstart="app.budgetButton()">Check out the budget</button>
 			{{/hasBudget}}
-			<a class="button-main button-block" onclick="app.executeButton()">EXECUTE</a>
+			<a class="button-main button-block" ontouchstart="app.executeButton()">EXECUTE</a>
 		</script>
 		<script id="budget" type="text/html">
 			
