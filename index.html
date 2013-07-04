@@ -11,10 +11,20 @@
 		<script src="lib/ICanHaz.min.js"></script>
 		<script src="game.js"></script>
 		<script id="splash" type="text/html">
-			<img />
-			<p>ohai</p>
-			<button onclick="app.startButton()">New Game</button>
-			<button onclick="app.aboutButton()">About</button>
+			<div class="container">
+			  <div class="row">
+			    <div class="span4">
+			      <h1>Machine of Death</h1>
+			      <h2>The Game of Creative Assasination</h2>
+			    </div>
+			    <div class="span8">
+			      <img id="bubble" src="http://i.imgur.com/a8ppEcV.jpg" width="300px">
+			      <img src="http://i.imgur.com/NmMMYHb.jpg" width="158px"> 
+			    </div>
+			  </div>
+			  <button onclick="app.startButton()" class="button-main button-block">New Game</button>
+			  <button onclick="app.aboutButton()" class="button button-block">About</button> 
+			</div>
 		</script>
 		<script id="about" type="text/html">
 			<p>by Gavin. The app, I mean, not the concept.</p>
