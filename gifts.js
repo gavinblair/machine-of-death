@@ -131,6 +131,8 @@ var gifts = function() {
 		'A RAW MATERIAL',
 		'A RAW MATERIAL'
 	];
+	this.hand = [];
+
 	this.draw = function(){
 		var i = Math.floor(Math.random()*this.deck.length);
 		var result = this.deck[i];
@@ -142,6 +144,22 @@ var gifts = function() {
 			}
 		}
 		this.deck = temp;
+		this.hand.push(result);
 		return result;
+	};
+
+	this.discard = function(card){
+		for(var i in this.hand){
+			if(this.hand[i] === card){
+				delete this.hand[i];
+				var temp = [];
+				for(var x in this.hand){
+					if(this.hand[x] !== undefined){
+						temp.push(this.hand[x]);
+					}
+				}
+				this.hand = temp;
+			}
+		}
 	};
 };

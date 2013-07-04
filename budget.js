@@ -1,20 +1,20 @@
 var budget = function() {
-	this.cards = [];
+	this.hand = [];
 	this.add = function(card){
-		this.cards.push(card);
+		this.hand.push(card);
 	};
 	this.remove = function(card){
-		for(var i in this.cards){
-			if(this.cards[i] === card){
-				delete this.cards[i];
+		for(var i in this.hand){
+			if(this.hand[i] === card){
+				delete this.hand[i];
 			}
 		}
 		var temp = [];
-		for(var x in this.cards){
-			if(this.cards[x] !== undefined){
-				temp.push(this.cards[x]);
+		for(var x in this.hand){
+			if(this.hand[x] !== undefined){
+				temp.push(this.hand[x]);
 			}
 		}
-		this.cards = temp;
+		this.hand = temp;
 	};
 };
