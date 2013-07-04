@@ -2,6 +2,9 @@ body{
   text-align: center;
   margin: 0;
 }
+* {
+  -webkit-user-select: none;
+}
 .span4{
   background: #0086C3;
   color: #fff;
