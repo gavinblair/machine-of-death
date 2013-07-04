@@ -43,7 +43,7 @@
 			      <p>
 				This app was created by <a href="http://twitter.com/gavinblair">@gavinblair</a>. <a href="http://machineofdeath.net/">Machine of Death</a> is not mine, however. I just really like it.
 			      </p>
-			      <a class="button button-block" onclick="app.backButton()">Back</a>
+			      <a class="button-main button-block" onclick="app.backButton()">Back</a>
 			    </div>
 			  </div>
 			</div>
@@ -56,45 +56,74 @@
 			    </div>
 			    <div class="span8">
 			      <p>Your mission is to eliminate {{difficulty}} targets.</p>
-			      <a class="button button-block" onclick="app.nextTargetButton()">Get First Target</a>
+			      <a class="button-main button-block" onclick="app.nextTargetButton()">Get First Target</a>
 			    </div>
 			  </div>
 			</div>
 		</script>
 		<script id="target" type="text/html">
-			<p>
-				Name: {{target.firstName}} {{target.lastName}}<br />
-				Excited By: {{target.excitedBy}}<br />
-				Hindered By: {{target.hinderedBy}}<br />
-				Location: {{target.location}}<br />
-			</p>
-			{{#button}}
-				<button onclick="app.predictionButton()">Get Prediction</button>
-			{{/button}}
+			<div class="container">
+			  <div class="row">
+			    <div class="span4">
+			      <h2>Target</h2>
+			    </div>
+			    <div class="span8">
+				<p>
+					<strong>Name:</strong> {{target.firstName}} {{target.lastName}}<br />
+					<strong>Excited By:</strong> {{target.excitedBy}}<br />
+					<strong>Hindered By:</strong> {{target.hinderedBy}}<br />
+					<strong>Location:</strong> {{target.location}}<br />
+				</p>
+				{{#button}}
+					<a class="button-main button-block" onclick="app.predictionButton()">Read Prediction</a>
+				{{/button}}
+			    </div>
+			  </div>
+			</div>
+			
 		</script>
 		<script id="prediction" type="text/html">
-			<p>
-				{{target.prediction}}
-			</p>
-			<p>
-				{{#target.knowsPrediction}}
-					Your target knows their prediction. This will make things more difficult.
-				{{/target.knowsPrediction}}
-				{{^target.knowsPrediction}}
-					Thankfully, your target does not know their prediction.
-				{{/target.knowsPrediction}}
-			</p>
-			{{#button}}
-				<button onclick="app.marketButton()">Visit Black Market</button>
-			{{/button}}
+			<div class="container">
+				<div class="row">
+					<div class="span4">
+						<h2>Prediction</h2>
+					</div>
+					<div class="span8">
+						<p>
+							<h2>{{target.prediction}}</h2>
+						</p>
+						<p>
+							{{#target.knowsPrediction}}
+								Your target knows their prediction. This will make things more difficult.
+							{{/target.knowsPrediction}}
+							{{^target.knowsPrediction}}
+								Thankfully, your target does not know their prediction.
+							{{/target.knowsPrediction}}
+						</p>
+						{{#button}}
+							<a class="button-main button-block" onclick="app.marketButton()">Visit Black Market</a>
+						{{/button}}
+					</div>
+				</div>
+			</div>
 		</script>
 		<script id="blackmarket" type="text/html">
-			<ul>
-				{{#hand}}
-					<li>{{.}}</li>
-				{{/hand}}
-			</ul>
-			<button onclick="app.planButton()">Make a Plan</button>
+			<div class="container">
+				<div class="row">
+					<div class="span4">
+						<h2>Black Market</h2>
+					</div>
+					<div class="span8">
+						<p>Here is your hand from the Black Market:</p>
+						<ul>
+							{{#hand}}
+								<li>{{.}}</li>
+							{{/hand}}
+						</ul>
+						<a class="button-main button-block" onclick="app.planButton()">Make a Plan</a>
+					</div>
+				</div>
+			</div>
 		</script>
 		<script id="planning" type="text/html">
 			{{>target}}
