@@ -1,5 +1,6 @@
 /*
 requires:
+ICanHaz.js
 budget.js
 targets.js
 session.js
@@ -18,6 +19,9 @@ var game = function(){
 
 
 	};
+	var aboutButton = function(){
+
+	}
 	var nextTargetButton = function(){
 	//show the target
 	//next step: visit the black market
@@ -87,3 +91,4 @@ var game = function(){
 	};
 
 };
+var app = new game();
