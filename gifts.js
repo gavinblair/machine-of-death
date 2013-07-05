@@ -144,7 +144,7 @@ var gifts = function() {
 			}
 		}
 		this.deck = temp;
-		this.hand.push({card:result});
+		this.hand.push({card:result, difficulty: 2});
 		return result;
 	};
 
