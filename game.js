@@ -67,7 +67,7 @@ var game = function(difficulty){
 		//start a 90 second timer if it hasn't already started
 		this.timer = new countdown(90, updateTimer, finishedTime);
 		
-		document.body.innerHTML = ich.execute({hand: this.newGame.giftCards.hand});
+		document.body.innerHTML = ich.execute({hand: this.newGame.giftCards.hand, target: this.target, hasBudget: hasBudget});
 	};
 	var updateTimer = function(t){
 		document.getElementsByTagName("h2")[0].innerHTML = t+" seconds left!";
