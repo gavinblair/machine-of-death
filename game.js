@@ -60,7 +60,7 @@ var game = function(difficulty){
 			//so we can add .difficulty
 			console.log((this.newGame.giftCards.hand[i].card+newnum) +"=="+ e.innerHTML.replace(/<[^>]*>/g, ""));
 			if((this.newGame.giftCards.hand[i].card+newnum) == e.innerHTML.replace(/<[^>]*>/g, "")){
-				this.newGame.giftsCards.hand[i].difficulty = newnum;
+				this.newGame.giftCards.hand[i].difficulty = newnum;
 			}
 		}
 	};
