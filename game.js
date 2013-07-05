@@ -72,7 +72,7 @@ var game = function(difficulty){
 	var updateTimer = function(t){
 		document.getElementsByTagName("h2")[0].innerHTML = t+" seconds left!";
 	};
-	var finishedTimer = function(){
+	var finishedTime = function(){
 		document.getElementsByTagName("h2")[0].innerHTML = "Time's up!";
 	};
 	this.toggleTimer = function(e){
