@@ -79,9 +79,12 @@ var game = function(difficulty){
 		document.getElementsByTagName("h2")[0].innerHTML = "Time's up!";
 	};
 	this.toggleTimer = function(e){
+		
 		if(e.classList.contains("active")){
+			alert(":O");
 			clearInterval(this.timer.interval);
 		} else {
+			alert(":)");
 			this.timer = new countdown(this.timer.current, updateTimer, finishedTime);
 		}
 	};
