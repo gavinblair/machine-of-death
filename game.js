@@ -66,7 +66,13 @@ var game = function(difficulty){
 	};
 	this.executeButton = function(){
 		//start a 90 second timer if it hasn't already started
-		
+		this.timer = new countdown(90, function(t){
+			//update
+			document.getElementByTagName("h1").innerHTML = t+" seconds left!";
+		}, function(){ 
+			//done
+			document.getElementByTagName("h1").innerHTML = "Time's up!";
+		});
 		
 		document.body.innerHTML = ich.execute({hand: this.newGame.giftCards.hand});
 	};
