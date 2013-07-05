@@ -154,8 +154,6 @@
 			
 		</script>
 		<script id="execute" type="text/html">
-			{{>target}}
-			{{>prediction}}
 			<div class="span4">
 				<h2>
 					90 seconds left!
@@ -164,6 +162,8 @@
       					<div class="toggle-handle"></div>
     				</div>
 			</div>
+			{{>target}}
+			{{>prediction}}
 			<div class="span8">
 				{{#hand}}
 					<p><a class="button-positive" ontouchstart="app.rollButton('{{card}}', {{difficulty}})"><em>Attempt</em> {{card}}<span class="count">{{difficulty}}</span></a></p>
