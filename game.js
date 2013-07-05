@@ -82,7 +82,7 @@ var game = function(difficulty){
 		clearInterval(this.timer.interval);
 		this.timer.interval = null;
 		var t = this;
-		setTimeout(function(t){
+		setTimeout(function(){
 			if(e.classList.contains("active")){
 				t.timer = new countdown(t.timer.current, updateTimer, finishedTime);
 			}
