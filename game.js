@@ -65,7 +65,7 @@ var game = function(difficulty){
 	};
 	this.executeButton = function(){
 		//start a 90 second timer if it hasn't already started
-		this.timer = new countdown(90, updateTimer(t), finishedTime());
+		this.timer = new countdown(90, updateTimer, finishedTime);
 		
 		document.body.innerHTML = ich.execute({hand: this.newGame.giftCards.hand});
 	};
