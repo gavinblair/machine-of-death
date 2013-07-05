@@ -79,7 +79,7 @@ var game = function(difficulty){
 		if(e.classList.contains("active")){
 			clearInterval(this.timer.interval);
 		} else {
-			this.timer = new countdown(this.timer.current, updateTimer, finishedTime;
+			this.timer = new countdown(this.timer.current, updateTimer, finishedTime);
 		}
 	};
 	this.rollButton = function(step, difficulty){
