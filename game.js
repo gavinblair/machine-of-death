@@ -55,23 +55,31 @@ var game = function(difficulty){
 		var newnum = oldnum + 1;
 		if(newnum > 6) { newnum = 2; }
 		e.children[0].innerHTML = newnum;
+		
+		for(var i in this.newGame.giftCards.hand){
+			//should be this.newGame.giftCards.hand.card, not just .hand
+			//so we can add .difficulty
+			//if(this.newGame.giftCards.hand.card == 
+		}
 	};
 	this.executeButton = function(){
-	//start a 90 second timer if it hasn't already started
-
-	//show first/next gift, difficulty & roll button
+		//start a 90 second timer if it hasn't already started
+		
+		
+		document.body.innerHTML = ich.execute({hand: this.newGame.giftCards.hand});
 	};
 
 	this.rollButton = function(step, difficulty){
-	//get a random number between 1 and 6
-	//if number >= difficulty, pass
-	//otherwise fail
-
-	//if pass (and we are in aftermath mode), draw a specialist card for the budget
-	//if fail (and we are in aftermath mode), go back to aftermathButton()
-	//if pass (and this wasn't the final step), show next gift, difficulty & roll button
-	//if fail, show regroup button
-	//if pass and this IS the third successful roll, win!
+		//get a random number between 1 and 6
+		
+		//if number >= difficulty, pass
+		//otherwise fail
+	
+		//if pass (and we are in aftermath mode), draw a specialist card for the budget
+		//if fail (and we are in aftermath mode), go back to aftermathButton()
+		//if pass (and this wasn't the final step), show next gift, difficulty & roll button
+		//if fail, show regroup button
+		//if pass and this IS the third successful roll, win!
 	};
 	this.regroupButton = function(){
 	//discard failed card
