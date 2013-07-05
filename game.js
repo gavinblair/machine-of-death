@@ -58,6 +58,7 @@ var game = function(difficulty){
 		
 		for(var i in this.newGame.giftCards.hand){
 			//so we can add .difficulty
+			console.log((this.newGame.giftCards.hand.card+newnum) +"=="+ e.innerHTML.replace(/<[^>]*>/g, ""));
 			if((this.newGame.giftCards.hand.card+newnum) == e.innerHTML.replace(/<[^>]*>/g, "")){
 				this.newGame.giftsCards.hand[i].difficulty = newnum;
 			}
