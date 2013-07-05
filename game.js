@@ -57,9 +57,10 @@ var game = function(difficulty){
 		e.children[0].innerHTML = newnum;
 		
 		for(var i in this.newGame.giftCards.hand){
-			//should be this.newGame.giftCards.hand.card, not just .hand
 			//so we can add .difficulty
-			//if(this.newGame.giftCards.hand.card == 
+			if((this.newGame.giftCards.hand.card+newnum) == e.innerHTML.replace(/<[^>]*>/g, "")){
+				this.newGame.giftsCards.hand[i].difficulty = newnum;
+			}
 		}
 	};
 	this.executeButton = function(){
