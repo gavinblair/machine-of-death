@@ -16,27 +16,27 @@ var game = function(difficulty){
 		this.newGame = new session(this.difficulty);
 
 		//show the game intro screen
-		document.body.innerHTML = ich.start({difficulty: this.difficulty});
+		document.getElementById('content').innerHTML = ich.start({difficulty: this.difficulty});
 	};
 	this.aboutButton = function(){
-		document.body.innerHTML = ich.about();
+		document.getElementById('content').innerHTML = ich.about();
 	};
 	this.backButton = function(){
-		document.body.innerHTML = ich.splash();
+		document.getElementById('content').innerHTML = ich.splash();
 	};
 	this.nextTargetButton = function(){
 		//show the target
 		this.target = this.newGame.missions.shift();
 
 		//next step: visit the black market
-		document.body.innerHTML = ich.target({target: this.target, button:true});
+		document.getElementById('content').innerHTML = ich.target({target: this.target, button:true});
 	};
 	this.predictionButton = function(){
-		document.body.innerHTML = ich.prediction({target: this.target, button:true});
+		document.getElementById('content').innerHTML = ich.prediction({target: this.target, button:true});
 	};
 	this.marketButton = function(){
 		//show gifts
-		document.body.innerHTML = ich.blackmarket({hand: this.newGame.giftCards.hand});
+		document.getElementById('content').innerHTML = ich.blackmarket({hand: this.newGame.giftCards.hand});
 	};
 
 	this.planButton = function(){
@@ -48,7 +48,7 @@ var game = function(difficulty){
 		if(this.myBudget.length > 0) {
 			hasBudget = true;
 		}
-		document.body.innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: hasBudget});
+		document.getElementById('content').innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: hasBudget});
 	};
 	this.changeDifficulty = function(e){
 		var oldnum = parseInt(e.children[0].innerHTML);
@@ -70,7 +70,7 @@ var game = function(difficulty){
 		if(this.myBudget.length > 0) {
 			hasBudget = true;
 		}
-		document.body.innerHTML = ich.execute({hand: this.newGame.giftCards.hand, target: this.target, hasBudget: hasBudget});
+		document.getElementById('content').innerHTML = ich.execute({hand: this.newGame.giftCards.hand, target: this.target, hasBudget: hasBudget});
 	};
 	var updateTimer = function(t){
 		document.getElementsByTagName("h2")[0].innerHTML = t;
