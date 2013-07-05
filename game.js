@@ -80,9 +80,9 @@ var game = function(difficulty){
 	};
 	this.toggleTimer = function(e){
 		if(e.classList.contains("active")){
-			
+			this.timer.resume();
 		} else {
-			
+			this.timer.pause();
 		}
 	};
 	this.rollButton = function(step, difficulty){
