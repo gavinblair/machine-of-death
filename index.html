@@ -153,7 +153,30 @@
 			
 		</script>
 		<script id="execute" type="text/html">
-			
+			<div class="span4">
+				<h2>Execute</h2>
+			</div>
+			<div class="span8">
+				{{#hand}}
+					<p><a class="button-positive" ontouchstart="app.rollButton('{{card}}')"><em>Attempt</em> {{card}}<span class="count">{{difficulty}}</span></a></p>
+				{{/hand}}
+			</div>
+		</script>
+		<script id="roll" type="text/html">
+			<div class="span4">
+				<h2>Attempt</h2>
+			</div>
+			<div class="span8">
+				{{#success}}
+					<h1>Success!</h1>
+					<p><a ontouchstart="app.executeButton()" class="button-main button-block">Continue</a>
+				{{/success}}
+				{{^success}}
+					<h1>Fail!</h1>
+					<p><a ontouchstart="app.drawButton()" class="button-main button-block">Draw a New Gift Card</a></p>
+				{{/success}}
+				
+			</div>
 		</script>
 		<script id="aftermath" type="text/html">
 			
