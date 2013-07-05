@@ -24,7 +24,7 @@ h1{
 p {
   margin: 1em;
 }
-#timer-control{
+.toggle{
   margin-top: -3.5em;
   margin-right: 1em;
 }
