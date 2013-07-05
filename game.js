@@ -65,17 +65,23 @@ var game = function(difficulty){
 	};
 	this.executeButton = function(){
 		//start a 90 second timer if it hasn't already started
-		this.timer = new countdown(90, function(t){
-			//update
-			document.getElementsByTagName("h2")[0].innerHTML = t+" seconds left!";
-		}, function(){ 
-			//done
-			document.getElementsByTagName("h2")[0].innerHTML = "Time's up!";
-		});
+		this.timer = new countdown(90, updateTimer(t), finishedTime());
 		
 		document.body.innerHTML = ich.execute({hand: this.newGame.giftCards.hand});
 	};
-
+	var updateTimer = function(t){
+		document.getElementsByTagName("h2")[0].innerHTML = t+" seconds left!";
+	};
+	var finishedTimer = function(){
+		document.getElementsByTagName("h2")[0].innerHTML = "Time's up!";
+	};
+	this.toggleTimer = function(e){
+		if(e.classList.contains("active")){
+			clearInterval(this.timer.interval);
+		} else {
+			this.timer = new countdown(this.timer.current, updateTimer(t), finishedTime());
+		}
+	};
 	this.rollButton = function(step, difficulty){
 		//get a random number between 1 and 6
 		
