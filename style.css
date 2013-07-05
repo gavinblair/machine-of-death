@@ -25,6 +25,7 @@ p {
   margin: 1em;
 }
 .toggle{
+  float: right;
   margin-top: -3.5em;
   margin-right: 1em;
 }
