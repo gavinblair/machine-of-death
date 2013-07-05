@@ -81,9 +81,10 @@ var game = function(difficulty){
 	this.toggleTimer = function(e){
 		clearInterval(this.timer.interval);
 		this.timer.interval = null;
-		setTimeout(function(){
+		var t = this;
+		setTimeout(function(t){
 			if(e.classList.contains("active")){
-				this.timer = new countdown(this.timer.current, updateTimer, finishedTime);
+				t.timer = new countdown(t.timer.current, updateTimer, finishedTime);
 			}
 		},500);
 	};
