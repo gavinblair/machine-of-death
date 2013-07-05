@@ -79,14 +79,11 @@ var game = function(difficulty){
 		document.getElementsByTagName("h2")[0].innerHTML = "Time's up!";
 	};
 	this.toggleTimer = function(e){
-		clearInterval(this.timer.interval);
-		this.timer.interval = null;
-		var t = this;
-		setTimeout(function(){
-			if(e.classList.contains("active")){
-				t.timer = new countdown(t.timer.current, updateTimer, finishedTime);
-			}
-		},500);
+		if(e.classList.contains("active")){
+			
+		} else {
+			
+		}
 	};
 	this.rollButton = function(step, difficulty){
 		//get a random number between 1 and 6
