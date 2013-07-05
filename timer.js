@@ -1,7 +1,6 @@
 var countdown = function(from, updateCallback, finishedCallback){
   this.current = from;
   var t = this;
-  this.resume();
   
   this.pause = function(){
     clearInterval(this.interval);
@@ -16,4 +15,6 @@ var countdown = function(from, updateCallback, finishedCallback){
       t.current --;
     }, 1000);
   };
+  
+  this.resume();
 };
