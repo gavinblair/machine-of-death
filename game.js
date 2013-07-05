@@ -81,11 +81,10 @@ var game = function(difficulty){
 	this.toggleTimer = function(e){
 		
 		if(e.classList.contains("active")){
-			alert(":O");
-			clearInterval(this.timer.interval);
-		} else {
-			alert(":)");
 			this.timer = new countdown(this.timer.current, updateTimer, finishedTime);
+		} else {
+			clearInterval(this.timer.interval);
+			this.timer.interval = null;
 		}
 	};
 	this.rollButton = function(step, difficulty){
