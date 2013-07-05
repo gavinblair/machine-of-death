@@ -144,13 +144,13 @@ var gifts = function() {
 			}
 		}
 		this.deck = temp;
-		this.hand.push(result);
+		this.hand.push({card:result});
 		return result;
 	};
 
 	this.discard = function(card){
 		for(var i in this.hand){
-			if(this.hand[i] === card){
+			if(this.hand[i].card === card){
 				delete this.hand[i];
 				var temp = [];
 				for(var x in this.hand){
