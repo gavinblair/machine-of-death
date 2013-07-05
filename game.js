@@ -73,7 +73,7 @@ var game = function(difficulty){
 		document.body.innerHTML = ich.execute({hand: this.newGame.giftCards.hand, target: this.target, hasBudget: hasBudget});
 	};
 	var updateTimer = function(t){
-		document.getElementsByTagName("h2")[0].innerHTML = t+" seconds left!";
+		document.getElementsByTagName("h2")[0].innerHTML = t;
 	};
 	var finishedTime = function(){
 		document.getElementsByTagName("h2")[0].innerHTML = "Time's up!";
