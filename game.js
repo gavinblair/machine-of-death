@@ -85,11 +85,21 @@ var game = function(difficulty){
 			this.timer.pause();
 		}
 	};
-	this.rollButton = function(step, difficulty){
+	this.rollButton = function(card){
 		//get a random number between 1 and 6
-		
-		//if number >= difficulty, pass
-		//otherwise fail
+		var roll = Math.floor(Math.random()*6)+1;
+		var difficulty;
+		//get the difficulty
+		for(var i in this.newGame.giftCards.hand[i]){
+			if(this.newGame.giftCards.hand[i].card === card){
+				difficulty = this.newGame.giftCards.hand[i].difficulty;
+			}
+		}
+		if(roll >= difficulty){
+			//if number >= difficulty, pass
+		} else {
+			//otherwise fail
+		}
 	
 		//if pass (and we are in aftermath mode), draw a specialist card for the budget
 		//if fail (and we are in aftermath mode), go back to aftermathButton()
