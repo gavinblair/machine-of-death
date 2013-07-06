@@ -69,7 +69,9 @@ var game = function(difficulty){
 	};
 	this.executeButton = function(){
 		//start a 90 second timer if it hasn't already started
-		this.timer = new countdown(90, updateTimer, finishedTime);
+		if(this.timer === undefined){
+			this.timer = new countdown(90, updateTimer, finishedTime);
+		}
 		document.getElementById('content').innerHTML = ich.execute({hand: this.newGame.giftCards.hand, target: this.target, hasBudget: this.hasBudget()});
 	};
 	var updateTimer = function(t){
