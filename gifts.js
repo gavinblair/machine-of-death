@@ -144,6 +144,16 @@ var gifts = function() {
 			}
 		}
 		this.deck = temp;
+		for(var y in in this.hand){
+			if(this.hand[y] === result){
+				result = "ANOTHER "+result;
+			}
+		}
+		for(var x in in this.hand){
+			if(this.hand[x] === result){
+				result = "YET ANOTHER "+result;
+			}
+		}
 		this.hand.push({card:result, difficulty: 2});
 		return result;
 	};
@@ -161,5 +171,20 @@ var gifts = function() {
 				this.hand = temp;
 			}
 		}
+	};
+	this.roll = function(card){
+		//get a random number between 1 and 6
+		for(var i in this.hand){
+			if(this.hand[i].card === card){
+				var num = Math.floor(Math.random()*6)+1;
+				if(num >= this.hand[i].difficulty){
+					return true;
+				} else {
+					return false;
+				}
+				break;
+			}
+		}
+		
 	};
 };
