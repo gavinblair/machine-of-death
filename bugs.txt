@@ -1,0 +1,4 @@
+sometimes an empty gift is drawn. possibly an off-by-one error.
+
+setting the difficulty of two gifts with the same name. perhaps this can be fixed by assigning an ID to each "card" so there are no actual duplicates.
+
