@@ -114,15 +114,16 @@ var game = function(difficulty){
 				this.moveOn();
 			}
 		} else {
-			//otherwise fail
-			document.getElementById('regroupButton').style.display = 'block';
+			//otherwise fail - draw a new card, show the planning page
+			this.newGame.giftCards.draw();
+			document.getElementById('content').innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: hasBudget, playing: true});
+			
 		}
 	};
 	this.moveOn = function(){
 		alert("moving on...");
 	};
 	this.regroupButton = function(){
-		alert("ouch... gotta regroup!");
 	//discard failed card
 	//draw a new gift card
 	//show timer
