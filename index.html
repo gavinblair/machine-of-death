@@ -175,7 +175,7 @@
 			{{>prediction}}
 			<div class="span8">
 				{{#hand}}
-					<p><a class="button-positive" ontouchstart="app.rollButton('{{card}}')"><em>Attempt</em> {{card}}<span class="count">{{difficulty}}</span></a></p>
+					<p><a class="button-positive" ontouchstart="app.rollButton('{{card}}', this)"><em>Attempt</em> {{card}}<span class="count">{{difficulty}}</span></a></p>
 				{{/hand}}
 			</div>
 		</script>
