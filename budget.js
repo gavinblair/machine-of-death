@@ -17,4 +17,11 @@ var budget = function() {
 		}
 		this.hand = temp;
 	};
+	this.hasBudget = function(){
+		var hasBudget = false;
+		if(this.myBudget.length > 0) {
+			hasBudget = true;
+		}
+		return hasBudget;
+	};
 };
