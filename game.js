@@ -63,6 +63,7 @@ var game = function(difficulty){
 			//so we can add .difficulty
 			if((this.newGame.giftCards.hand[i].card+newnum) == e.innerHTML.replace(/<[^>]*>/g, "")){
 				this.newGame.giftCards.hand[i].difficulty = newnum;
+				break;
 			}
 		}
 	};
@@ -92,6 +93,7 @@ var game = function(difficulty){
 		for(var i in this.newGame.giftCards.hand){
 			if(this.newGame.giftCards.hand[i].card === card){
 				difficulty = this.newGame.giftCards.hand[i].difficulty;
+				break;
 			}
 		}
 		//either way we are discarding this card
@@ -104,8 +106,9 @@ var game = function(difficulty){
 			var as = document.getElementsByTagName('a');
 			var found = false;
 			for(var i in as) {
-				if(as[i].className !== "" && as[i].className.indexOf("button-positive") !== -1){
+				if(as[i].className !== undefined && as[i].className.indexOf("button-positive") !== -1){
 					found = true;
+					break;
 				}
 			}
 			if(!found){
