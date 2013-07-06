@@ -89,9 +89,8 @@ var game = function(difficulty){
 		//get a random number between 1 and 6
 		var roll = Math.floor(Math.random()*6)+1;
 		var difficulty;
-		console.log(this.newGame);
 		//get the difficulty
-		for(var i in this.newGame.giftCards.hand[i]){
+		for(var i in this.newGame.giftCards.hand){
 			console.log(this.newGame.giftCards.hand[i].card+"==="+card);
 			if(this.newGame.giftCards.hand[i].card === card){
 				difficulty = this.newGame.giftCards.hand[i].difficulty;
