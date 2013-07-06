@@ -144,12 +144,12 @@ var gifts = function() {
 			}
 		}
 		this.deck = temp;
-		for(var y in in this.hand){
+		for(var y in this.hand){
 			if(this.hand[y] === result){
 				result = "ANOTHER "+result;
 			}
 		}
-		for(var x in in this.hand){
+		for(var x in this.hand){
 			if(this.hand[x] === result){
 				result = "YET ANOTHER "+result;
 			}
