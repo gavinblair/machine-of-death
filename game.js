@@ -44,11 +44,14 @@ var game = function(difficulty){
 		//allow option to swap gifts with items from the budget
 		//allow setting difficulty of each gift
 
+		document.getElementById('content').innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: this.hasBudget()});
+	};
+	this.hasBudget = function(){
 		var hasBudget = false;
 		if(this.myBudget.length > 0) {
 			hasBudget = true;
 		}
-		document.getElementById('content').innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: hasBudget});
+		return hasBudget;
 	};
 	this.changeDifficulty = function(e){
 		var oldnum = parseInt(e.children[0].innerHTML);
@@ -66,11 +69,7 @@ var game = function(difficulty){
 	this.executeButton = function(){
 		//start a 90 second timer if it hasn't already started
 		this.timer = new countdown(90, updateTimer, finishedTime);
-		var hasBudget = false;
-		if(this.myBudget.length > 0) {
-			hasBudget = true;
-		}
-		document.getElementById('content').innerHTML = ich.execute({hand: this.newGame.giftCards.hand, target: this.target, hasBudget: hasBudget});
+		document.getElementById('content').innerHTML = ich.execute({hand: this.newGame.giftCards.hand, target: this.target, hasBudget: this.hasBudget()});
 	};
 	var updateTimer = function(t){
 		document.getElementsByTagName("h2")[0].innerHTML = t;
@@ -116,7 +115,7 @@ var game = function(difficulty){
 		} else {
 			//otherwise fail - draw a new card, show the planning page
 			this.newGame.giftCards.draw();
-			document.getElementById('content').innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: hasBudget, playing: true});
+			document.getElementById('content').innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: this.hasBudget(), playing: true});
 			
 		}
 	};
