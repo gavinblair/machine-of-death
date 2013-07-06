@@ -85,33 +85,44 @@ var game = function(difficulty){
 			this.timer.pause();
 		}
 	};
-	this.rollButton = function(card){
+	this.rollButton = function(card, e){
 		//get a random number between 1 and 6
 		var roll = Math.floor(Math.random()*6)+1;
 		var difficulty;
 		//get the difficulty
 		for(var i in this.newGame.giftCards.hand){
-			console.log(this.newGame.giftCards.hand[i].card+"==="+card);
 			if(this.newGame.giftCards.hand[i].card === card){
 				difficulty = this.newGame.giftCards.hand[i].difficulty;
 			}
 		}
-		console.log(difficulty);
+		//either way we are discarding this card
+		this.newGame.giftCards.discard(card);
+		e.parentNode.removeChild(e);
+		
 		if(roll >= difficulty){
 			//if number >= difficulty, pass
-			console.log("pass");
+			//any more?
+			var as = document.getElementsByTagName('a');
+			var found = false;
+			for(var i in as) {
+				if(as[i].className.indexOf("button-positive") !== -1){
+					found = true;
+				}
+			}
+			if(!found){
+				//that was the last step!
+				this.moveOn();
+			}
 		} else {
 			//otherwise fail
-			console.log("fail");
+			document.getElementById('regroupButton').style.display = 'block';
 		}
-	
-		//if pass (and we are in aftermath mode), draw a specialist card for the budget
-		//if fail (and we are in aftermath mode), go back to aftermathButton()
-		//if pass (and this wasn't the final step), show next gift, difficulty & roll button
-		//if fail, show regroup button
-		//if pass and this IS the third successful roll, win!
+	};
+	this.moveOn = function(){
+		alert("moving on...");
 	};
 	this.regroupButton = function(){
+		alert("ouch... gotta regroup!");
 	//discard failed card
 	//draw a new gift card
 	//show timer
