@@ -150,7 +150,7 @@ var gifts = function() {
 
 	this.discard = function(card){
 		for(var i in this.hand){
-			if(this.hand[i].card === card){
+			if(this.hand[i] !== undefined && this.hand[i].card === card){
 				delete this.hand[i];
 				var temp = [];
 				for(var x in this.hand){
