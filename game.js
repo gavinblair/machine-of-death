@@ -104,6 +104,7 @@ var game = function(difficulty){
 		
 		if(roll >= difficulty){
 			//if number >= difficulty, pass
+			alert("Success!");
 			//any more?
 			var as = document.getElementsByTagName('a');
 			var found = false;
@@ -119,6 +120,7 @@ var game = function(difficulty){
 			}
 		} else {
 			//otherwise fail - draw a new card, show the planning page
+			alert("Fail!");
 			this.newGame.giftCards.draw();
 			document.getElementById('content').innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: this.hasBudget(), playing: true});
 			
