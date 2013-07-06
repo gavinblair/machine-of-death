@@ -97,8 +97,10 @@ var game = function(difficulty){
 		}
 		if(roll >= difficulty){
 			//if number >= difficulty, pass
+			console.log("pass");
 		} else {
 			//otherwise fail
+			console.log("fail");
 		}
 	
 		//if pass (and we are in aftermath mode), draw a specialist card for the budget
