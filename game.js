@@ -44,14 +44,7 @@ var game = function(difficulty){
 		//allow option to swap gifts with items from the budget
 		//allow setting difficulty of each gift
 
-		document.getElementById('content').innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: this.hasBudget()});
-	};
-	this.hasBudget = function(){
-		var hasBudget = false;
-		if(this.myBudget.length > 0) {
-			hasBudget = true;
-		}
-		return hasBudget;
+		document.getElementById('content').innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: myBudget.hasBudget()});
 	};
 	this.changeDifficulty = function(e){
 		var oldnum = parseInt(e.children[0].innerHTML);
@@ -72,7 +65,7 @@ var game = function(difficulty){
 		if(this.timer === undefined){
 			this.timer = new countdown(90, updateTimer, finishedTime);
 		}
-		document.getElementById('content').innerHTML = ich.execute({hand: this.newGame.giftCards.hand, target: this.target, hasBudget: this.hasBudget()});
+		document.getElementById('content').innerHTML = ich.execute({hand: this.newGame.giftCards.hand, target: this.target, hasBudget: myBudget.hasBudget()});
 	};
 	var updateTimer = function(t){
 		document.getElementsByTagName("h2")[0].innerHTML = t;
@@ -88,22 +81,11 @@ var game = function(difficulty){
 		}
 	};
 	this.rollButton = function(card, e){
-		//get a random number between 1 and 6
-		var roll = Math.floor(Math.random()*6)+1;
-		var difficulty;
-		//get the difficulty
-		for(var i in this.newGame.giftCards.hand){
-			if(this.newGame.giftCards.hand[i].card === card){
-				difficulty = this.newGame.giftCards.hand[i].difficulty;
-				break;
-			}
-		}
-		//either way we are discarding this card
-		this.newGame.giftCards.discard(card);
-		e.parentNode.removeChild(e);
 		
-		if(roll >= difficulty){
-			//if number >= difficulty, pass
+		//either way we are discarding this card
+		e.parentNode.removeChild(e);
+		if(newGame.giftCards.roll(card)){
+			//success
 			alert("Success!");
 			//any more?
 			var as = document.getElementsByTagName('a');
@@ -119,10 +101,10 @@ var game = function(difficulty){
 				this.moveOn();
 			}
 		} else {
-			//otherwise fail - draw a new card, show the planning page
+			//fail
 			alert("Fail!");
 			this.newGame.giftCards.draw();
-			document.getElementById('content').innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: this.hasBudget(), playing: true});
+			document.getElementById('content').innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: myBudget.hasBudget(), playing: true});
 			
 		}
 	};
