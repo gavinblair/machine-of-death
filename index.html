@@ -131,9 +131,19 @@
 			</div>
 		</script>
 		<script id="planning" type="text/html">
-			<div class="span4">
-				<h2>Make a Plan</h2>
-			</div>
+			{{^playing}}
+				<div class="span4">
+					<h2>Make a Plan</h2>
+				</div>
+			{{/playing}}
+			{{#playing}}
+				<div class="span4">
+					<h2>{{timer}}</h2>
+	    				<div onclick="app.toggleTimer(this)" class="toggle active">
+	      					<div class="toggle-handle"></div>
+	    				</div>
+				</div>
+			{{/playing}}
 			{{>target}}
 			{{>prediction}}
 			<div class="container">
