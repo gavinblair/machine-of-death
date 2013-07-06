@@ -105,7 +105,7 @@ var game = function(difficulty){
 			var as = document.getElementsByTagName('a');
 			var found = false;
 			for(var i in as) {
-				if(as[i].className.indexOf("button-positive") !== -1){
+				if(as[i].className !== "" && as[i].className.indexOf("button-positive") !== -1){
 					found = true;
 				}
 			}
