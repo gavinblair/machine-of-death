@@ -91,10 +91,12 @@ var game = function(difficulty){
 		var difficulty;
 		//get the difficulty
 		for(var i in this.newGame.giftCards.hand[i]){
+			console.log(this.newGame.giftCards.hand[i].card+"==="+card);
 			if(this.newGame.giftCards.hand[i].card === card){
 				difficulty = this.newGame.giftCards.hand[i].difficulty;
 			}
 		}
+		console.log(difficulty);
 		if(roll >= difficulty){
 			//if number >= difficulty, pass
 			console.log("pass");
