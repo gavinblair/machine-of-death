@@ -109,7 +109,7 @@ var game = function(difficulty){
 		}
 	};
 	this.moveOn = function(){
-		alert("moving on...");
+		alert("moving on... either to the next target or to the win screen!");
 	};
 	this.regroupButton = function(){
 	//discard failed card
