@@ -84,19 +84,11 @@ var game = function(difficulty){
 		
 		//either way we are discarding this card
 		e.parentNode.removeChild(e);
-		if(newGame.giftCards.roll(card)){
+		if(this.newGame.giftCards.roll(card)){
 			//success
 			alert("Success!");
 			//any more?
-			var as = document.getElementsByTagName('a');
-			var found = false;
-			for(var i in as) {
-				if(as[i].className !== undefined && as[i].className.indexOf("button-positive") !== -1){
-					found = true;
-					break;
-				}
-			}
-			if(!found){
+			if(this.newGame.giftsCards.hand.length){
 				//that was the last step!
 				this.moveOn();
 			}
