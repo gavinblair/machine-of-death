@@ -150,7 +150,7 @@ var gifts = function() {
 			}
 		}
 		if(result.indexOf("ANOTHER ANOTHER ") === 0){
-			result.replace("ANOTHER ANOTHER ", "YET ANOTHER ");
+			result = result.replace("ANOTHER ANOTHER ", "YET ANOTHER ");
 		}
 		
 		this.hand.push({card:result, difficulty: 2});
