@@ -150,8 +150,8 @@ var gifts = function() {
 			}
 		}
 		for(var x in this.hand){
-			if(this.hand[x].card === result){
-				result = "YET ANOTHER "+result;
+			if(result.indexOf("ANOTHER ANOTHER ") === 0){
+				result.replace("ANOTHER ANOTHER ", "YET ANOTHER");
 			}
 		}
 		this.hand.push({card:result, difficulty: 2});
