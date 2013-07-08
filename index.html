@@ -123,7 +123,7 @@
 							Here is your hand from the Black Market:
 						</p>
 						{{#hand}}
-							<p><a class="button-positive">{{card}}</a></p>
+							<p><span class="count">{{card}}</span></p>
 						{{/hand}}
 						<a class="button-main button-block" ontouchstart="app.planButton()">Make a Plan</a>
 					</div>
@@ -150,7 +150,7 @@
 				<div class="row">
 					<div class="span8">
 						{{#hand}}
-							<p><a class="button-positive" ontouchstart="app.changeDifficulty(this)">{{card}}<span class="count">2</span></a></p>
+							<p><a class="button-main" ontouchstart="app.changeDifficulty(this)">{{card}}<span class="count">2</span></a></p>
 						{{/hand}}
 					</div>
 				</div>
