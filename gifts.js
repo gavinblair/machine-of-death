@@ -149,11 +149,10 @@ var gifts = function() {
 				result = "ANOTHER "+result;
 			}
 		}
-		for(var x in this.hand){
-			if(result.indexOf("ANOTHER ANOTHER ") === 0){
-				result.replace("ANOTHER ANOTHER ", "YET ANOTHER ");
-			}
+		if(result.indexOf("ANOTHER ANOTHER ") === 0){
+			result.replace("ANOTHER ANOTHER ", "YET ANOTHER ");
 		}
+		
 		this.hand.push({card:result, difficulty: 2});
 		return result;
 	};
