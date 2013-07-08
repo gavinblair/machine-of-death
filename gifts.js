@@ -134,27 +134,33 @@ var gifts = function() {
 	this.hand = [];
 
 	this.draw = function(){
-		var i = Math.floor(Math.random()*this.deck.length);
-		var result = this.deck[i];
-		delete this.deck[i];
-		var temp = [];
-		for(var x in this.deck){
-			if(this.deck[x] !== undefined){
-				temp.push(this.deck[x]);
+		//deck empty?
+		if(this.deck.length > 0){
+			var i = Math.floor(Math.random()*this.deck.length);
+			var result = this.deck[i];
+			delete this.deck[i];
+			var temp = [];
+			for(var x in this.deck){
+				if(this.deck[x] !== undefined){
+					temp.push(this.deck[x]);
+				}
 			}
-		}
-		this.deck = temp;
-		for(var y in this.hand){
-			if(this.hand[y].card === result){
-				result = "ANOTHER "+result;
+			this.deck = temp;
+			for(var y in this.hand){
+				if(this.hand[y].card === result){
+					result = "ANOTHER "+result;
+				}
 			}
+			if(result.indexOf("ANOTHER ANOTHER ") === 0){
+				result = result.replace("ANOTHER ANOTHER ", "YET ANOTHER ");
+			}
+			
+			this.hand.push({card:result, difficulty: 2});
+			return result;
+		} else {
+			//the deck is empty!
+			return false;
 		}
-		if(result.indexOf("ANOTHER ANOTHER ") === 0){
-			result = result.replace("ANOTHER ANOTHER ", "YET ANOTHER ");
-		}
-		
-		this.hand.push({card:result, difficulty: 2});
-		return result;
 	};
 
 	this.discard = function(card){
