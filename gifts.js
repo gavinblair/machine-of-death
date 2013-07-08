@@ -173,6 +173,7 @@ var gifts = function() {
 		}
 	};
 	this.roll = function(card){
+		this.discard(card);
 		//get a random number between 1 and 6
 		for(var i in this.hand){
 			if(this.hand[i].card === card){
