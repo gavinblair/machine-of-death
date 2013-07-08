@@ -96,6 +96,10 @@ var game = function(difficulty){
 			//fail
 			alert("Fail!");
 			if(this.newGame.giftCards.draw()){
+				//reset all difficulties to 2
+				for(var i in this.newGame.giftCards.hand){
+					this.newGame.giftCards.hand[i].difficulty = 2;
+				}
 				document.getElementById('content').innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: this.myBudget.hasBudget(), playing: true});
 			} else {
 				//deck is empty, you lose!
