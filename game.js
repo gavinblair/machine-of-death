@@ -95,8 +95,12 @@ var game = function(difficulty){
 		} else {
 			//fail
 			alert("Fail!");
-			this.newGame.giftCards.draw();
-			document.getElementById('content').innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: this.myBudget.hasBudget(), playing: true});
+			if(this.newGame.giftCards.draw()){
+				document.getElementById('content').innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: this.myBudget.hasBudget(), playing: true});
+			} else {
+				//deck is empty, you lose!
+				this.lose();
+			}
 			
 		}
 	};
@@ -123,7 +127,8 @@ var game = function(difficulty){
 	//if it is, then win the whole game!
 	};
 	this.lose = function(){
-	//sorry, you lose.
+		//sorry, you lose.
+		alert("Time ran out or you ran out of cards!");
 	};
 	this.aftermathButton = function(){
 	//if there are no available aftermaths to attempt, win()
