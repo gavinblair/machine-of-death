@@ -178,12 +178,13 @@ var gifts = function() {
 		}
 	};
 	this.roll = function(card){
-		this.discard(card);
 		//get a random number between 1 and 6
 		for(var i in this.hand){
 			if(this.hand[i].card === card){
+				var difficulty = this.hand[i].difficulty;
+				this.discard(card);
 				var num = Math.floor(Math.random()*6)+1;
-				if(num >= this.hand[i].difficulty){
+				if(num >= difficulty){
 					return true;
 				} else {
 					return false;
