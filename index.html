@@ -2,16 +2,16 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-	        <title>Machine of Death</title>
-	        <meta name="description" content="The Game of Creative Assassination">
-	        <meta name="HandheldFriendly" content="True">
-	        <meta name="viewport" content="initial-scale=1, maximum-scale=1.0, user-scalable=no">
-	        <meta name="apple-mobile-web-app-capable" content="yes">
-	        <meta http-equiv="cleartype" content="on">
+		<title>Machine of Death</title>
+		<meta name="description" content="The Game of Creative Assassination">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="cleartype" content="on">
 		<script src="budget.js?v=1"></script>
 		<script src="targets.js"></script>
 		<script src="session.js"></script>
-		<script src="gifts.js?v=10"></script>
+		<script src="gifts.js?v=11"></script>
 		<script src="specialists.js"></script>
 		<script src="aftermath.js"></script>
 		<script src="timer.js?v=1"></script>
@@ -20,14 +20,14 @@
 		<script src="game.js?v=35"></script>
 		<script id="splash" type="text/html">
 			<div class="container">
-			  <div class="row">
-			    <div class="span4">
-			      <h1>Machine of Death</h1>
-			      <h2>The Game of Creative Assassination</h2>
+				<div class="row">
+					<div class="span4">
+						<h1>Machine of Death</h1>
+						<h2>The Game of Creative Assassination</h2>
 			    </div>
 			    <div class="span8">
-			      <img id="bubble" src="http://i.imgur.com/a8ppEcV.jpg" width="50%">
-			      <img src="http://i.imgur.com/NmMMYHb.jpg" width="25%"> 
+						<img id="bubble" src="http://i.imgur.com/a8ppEcV.jpg" width="50%">
+						<img src="http://i.imgur.com/NmMMYHb.jpg" width="25%"> 
 			    </div>
 			  </div>
 			  <a ontouchstart="app.startButton()" class="button-main button-block">New Game</a>
@@ -36,28 +36,31 @@
 		</script>
 		<script id="about" type="text/html">
 			<div class="container">
-			  <div class="row">
-			    <div class="span4">
-			      <h2>About</h2>
-			    </div>
-			    <div class="span8">
-			      <p>
-				This app was created by <a href="http://twitter.com/gavinblair">@gavinblair</a>. <a href="http://machineofdeath.net/">Machine of Death</a> is not mine, however. I just really like it.
-			      </p>
-			      <a class="button-main button-block" ontouchstart="app.backButton()">Back</a>
-			    </div>
-			  </div>
+				<div class="row">
+			    		<div class="span4">
+								<h2>About</h2>
+			    		</div>
+					<div class="span8">
+								<p>
+									This app was created by <a href="http://twitter.com/gavinblair">@gavinblair</a>. <a href="http://machineofdeath.net/">Machine of Death</a> is not mine, however.
+								</p>
+								<p>
+									I just really like it.
+								</p>
+								<a class="button-main button-block" ontouchstart="app.backButton()">Back</a>
+			    		</div>
+			  	</div>
 			</div>
 		</script>
 		<script id="start" type="text/html">
 			<div class="container">
 			  <div class="row">
 			    <div class="span4">
-			      <h2>New Game</h2>
+						<h2>New Game</h2>
 			    </div>
 			    <div class="span8">
-			      <p>Your mission is to eliminate {{difficulty}} targets.</p>
-			      <a class="button-main button-block" ontouchstart="app.nextTargetButton()">Get First Target</a>
+						<p>Your mission is to eliminate {{difficulty}} targets.</p>
+						<a class="button-main button-block" ontouchstart="app.nextTargetButton()">Get First Target</a>
 			    </div>
 			  </div>
 			</div>
@@ -66,24 +69,23 @@
 			<div class="container">
 			  <div class="row">
 			  	{{#button}}
-					<div class="span4">
-						<h2>Target</h2>
-					</div>
-				{{/button}}
+						<div class="span4">
+							<h2>Target</h2>
+						</div>
+					{{/button}}
 			    <div class="span8">
-				<p>
-					<strong>Name:</strong> {{target.firstName}} {{target.lastName}}<br />
-					<strong>Excited By:</strong> {{target.excitedBy}}<br />
-					<strong>Hindered By:</strong> {{target.hinderedBy}}<br />
-					<strong>Location:</strong> {{target.location}}<br />
-				</p>
-				{{#button}}
-					<a class="button-main button-block" ontouchstart="app.predictionButton()">Read Prediction</a>
-				{{/button}}
+						<p>
+							<strong>Name:</strong> {{target.firstName}} {{target.lastName}}<br />
+							<strong>Excited By:</strong> {{target.excitedBy}}<br />
+							<strong>Hindered By:</strong> {{target.hinderedBy}}<br />
+							<strong>Location:</strong> {{target.location}}<br />
+						</p>
+						{{#button}}
+							<a class="button-main button-block" ontouchstart="app.predictionButton()">Read Prediction</a>
+						{{/button}}
 			    </div>
 			  </div>
 			</div>
-			
 		</script>
 		<script id="prediction" type="text/html">
 			<div class="container">
@@ -120,7 +122,7 @@
 					</div>
 					<div class="span8">
 						<p>
-							Here is your hand from the Black Market:
+							Here is your hand from the Black Market.
 						</p>
 						{{#hand}}
 							<p><span class="count">{{card}}</span></p>
@@ -140,7 +142,7 @@
 				<div class="span4">
 					<h2>{{timer}}</h2>
 	    				<div onclick="app.toggleTimer(this)" class="toggle active">
-	      					<div class="toggle-handle"></div>
+								<div class="toggle-handle"></div>
 	    				</div>
 				</div>
 			{{/playing}}
@@ -149,6 +151,9 @@
 			<div class="container">
 				<div class="row">
 					<div class="span8">
+						<p>
+							Devise an action for each of your items. Choose a difficulty for each action below. When you're finished, execute your plan.
+						</p>
 						{{#hand}}
 							<p><a class="button-main" ontouchstart="app.changeDifficulty(this)">{{card}}<span class="count">2</span></a></p>
 						{{/hand}}
@@ -168,12 +173,15 @@
 			<div class="span4">
 				<h2>90</h2>
     				<div onclick="app.toggleTimer(this)" class="toggle active">
-      					<div class="toggle-handle"></div>
-    				</div>
+							<div class="toggle-handle"></div>
+						</div>
 			</div>
 			{{>target}}
 			{{>prediction}}
 			<div class="span8">
+				<p>
+					You may now attempt each of your actions. Click on the appropriate item to attempt the action. If you fail, you will draw a new item and will have to revise the remainder of your plan!
+				</p>
 				{{#hand}}
 					<p><a class="button-positive" ontouchstart="app.rollButton('{{card}}', this)"><em>Attempt</em> {{card}}<span class="count">{{difficulty}}</span></a></p>
 				{{/hand}}
