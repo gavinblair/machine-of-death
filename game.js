@@ -95,7 +95,7 @@ var game = function(difficulty){
 	};
 	this.proceedButton = function(){
 		//any more?
-		if(this.newGame.giftsCards.hand.length){
+		if(this.newGame.giftCards.hand.length){
 			//that was the last step!
 			this.moveOn();
 		} else {
