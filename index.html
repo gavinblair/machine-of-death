@@ -203,6 +203,36 @@
 				
 			</div>
 		</script>
+		<script id="success" type="text/html">
+			<div class="container">
+				<div class="row">
+			    		<div class="span4">
+								<h2>SUCCESS!</h2>
+			    		</div>
+					<div class="span8">
+								<p>
+									You have successfully used <span class="count">{{card}}</span>. On to the next stage of your plan!
+								</p>
+								<a class="button-positive button-block" ontouchstart="app.proceedButton()">Proceed</a>
+			    		</div>
+			  	</div>
+			</div>
+		</script>
+		<script id="fail" type="text/html">
+			<div class="container">
+				<div class="row">
+			    		<div class="span4">
+								<h2>FAIL!</h2>
+			    		</div>
+					<div class="span8">
+								<p>
+									Your use of <span class="count">{{card}}</span> has failed horribly. Time to draw a new item and rethink the rest of your plan!
+								</p>
+								<a class="button-negative button-block" ontouchstart="app.regroupButton()">Regroup</a>
+			    		</div>
+			  	</div>
+			</div>
+		</script>
 		<script id="aftermath" type="text/html">
 			
 		</script>
