@@ -95,7 +95,7 @@ var game = function(difficulty){
 	};
 	this.proceedButton = function(){
 		//any more?
-		if(this.newGame.giftCards.hand.length){
+		if(this.newGame.giftCards.hand.length === 0){
 			//that was the last step!
 			this.moveOn();
 		} else {
@@ -103,7 +103,6 @@ var game = function(difficulty){
 			document.getElementById('content').innerHTML = ich.execute({hand: this.newGame.giftCards.hand, target: this.target, hasBudget: this.myBudget.hasBudget()});
 		}
 	};
-	/**///not finished
 	this.regroupButton = function(){
 		if(this.newGame.giftCards.draw()){
 			//reset all difficulties to 2
