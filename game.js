@@ -93,14 +93,14 @@ var game = function(difficulty){
 			
 		}
 	};
-	/**///not finished
 	this.proceedButton = function(){
 		//any more?
 		if(this.newGame.giftsCards.hand.length){
 			//that was the last step!
 			this.moveOn();
 		} else {
-			
+			//back to the execute page
+			document.getElementById('content').innerHTML = ich.execute({hand: this.newGame.giftCards.hand, target: this.target, hasBudget: this.myBudget.hasBudget()});
 		}
 	};
 	/**///not finished
