@@ -86,38 +86,38 @@ var game = function(difficulty){
 		e.parentNode.removeChild(e);
 		if(this.newGame.giftCards.roll(card)){
 			//success
-			alert("Success!");
-			//any more?
-			if(this.newGame.giftsCards.hand.length){
-				//that was the last step!
-				this.moveOn();
-			}
+			document.getElementById('content').innerHTML = ich.success({card:card});
 		} else {
 			//fail
-			alert("Fail!");
-			if(this.newGame.giftCards.draw()){
-				//reset all difficulties to 2
-				for(var i in this.newGame.giftCards.hand){
-					this.newGame.giftCards.hand[i].difficulty = 2;
-				}
-				document.getElementById('content').innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: this.myBudget.hasBudget(), playing: true});
-			} else {
-				//deck is empty, you lose!
-				this.lose();
-			}
+			document.getElementById('content').innerHTML = ich.fail({card:card});
 			
+		}
+	};
+	/**///not finished
+	this.proceedButton = function(){
+		//any more?
+		if(this.newGame.giftsCards.hand.length){
+			//that was the last step!
+			this.moveOn();
+		} else {
+			
+		}
+	};
+	/**///not finished
+	this.regroupButton = function(){
+		if(this.newGame.giftCards.draw()){
+			//reset all difficulties to 2
+			for(var i in this.newGame.giftCards.hand){
+				this.newGame.giftCards.hand[i].difficulty = 2;
+			}
+			document.getElementById('content').innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: this.myBudget.hasBudget(), playing: true});
+		} else {
+			//deck is empty, you lose!
+			this.lose();
 		}
 	};
 	this.moveOn = function(){
 		alert("moving on... either to the next target or to the win screen!");
-	};
-	this.regroupButton = function(){
-	//discard failed card
-	//draw a new gift card
-	//show timer
-	//allow drag+drop reordering of gifts
-	//allow option to swap gifts with budget items
-	//next step: execute
 	};
 	this.timerEnd = function(){
 	//time's up!
