@@ -72,6 +72,14 @@ var game = function(difficulty){
 	};
 	var finishedTime = function(){
 		document.getElementsByTagName("h2")[0].innerHTML = "Time's up!";
+		//have we executed the current target?
+		if(this.newGame.giftCards.hand.length === 0){
+			//if so, get to the aftermath!
+			this.aftermath();
+		} else {
+			//if not, lose!
+			this.lose();
+		}
 	};
 	this.toggleTimer = function(e){
 		if(e.className.indexOf("active") !== -1){
@@ -112,28 +120,29 @@ var game = function(difficulty){
 			document.getElementById('content').innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: this.myBudget.hasBudget(), playing: true});
 		} else {
 			//deck is empty, you lose!
-			this.lose();
+			this.lose('deck');
 		}
 	};
 	this.moveOn = function(){
-		alert("moving on... either to the next target or to the win screen!");
-	};
-	this.timerEnd = function(){
-	//time's up!
-	//have we executed the current target?
-	//if so, win!
-	//if not, lose!
+		//moving on... either to the next target or to the win screen
+		if(this.newGame.missions.length){
+			//next target
+			document.getElementById('content').innerHTML = ich.nextmission({targets: this.newGame.missions.length, difficulty: this.difficulty});
+		} else {
+			this.win();
+		}
 	};
 	this.win = function(){
 	//if the timer is not up, enter aftermath!
 	//if this isn't the last target, nextTargetButton
 	//if it is, then win the whole game!
 	};
-	this.lose = function(){
+	this.lose = function(reason){
 		//sorry, you lose.
-		alert("Time ran out or you ran out of cards!");
+		alert(reason);
 	};
-	this.aftermathButton = function(){
+	this.aftermath = function(){
+		alert(aftermath);
 	//if there are no available aftermaths to attempt, win()
 	//otherwise...
 	//still show timer
