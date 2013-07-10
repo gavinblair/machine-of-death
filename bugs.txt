@@ -1,3 +1,5 @@
 sometimes an empty gift is drawn. possibly an off-by-one error.
 
 timer switching between screens is kindof weird.
+
+"0 targets left. get next target"
