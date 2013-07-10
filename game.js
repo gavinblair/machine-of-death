@@ -126,6 +126,10 @@ var game = function(difficulty){
 	this.moveOn = function(){
 		//moving on... either to the next target or to the win screen
 		if(this.newGame.missions.length){
+			//discard cards already in play
+			for(var x in this.newGame.giftCards.hand.length){
+				this.newGame.giftCards.discard(this.newGame.giftCards.hand[x].card);
+			}
 			//three new cards
 			for(var i = 0; i<=3; i++){
 				if(!this.newGame.giftCards.draw()){
