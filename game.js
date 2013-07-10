@@ -138,7 +138,7 @@ var game = function(difficulty){
 				}
 			}
 			//next target
-			document.getElementById('content').innerHTML = ich.nextmission({targets: this.newGame.missions.length, difficulty: this.difficulty});
+			document.getElementById('content').innerHTML = ich.nextmission({targets: this.newGame.missions.length-1, difficulty: this.difficulty});
 		} else {
 			this.win();
 		}
