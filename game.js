@@ -127,7 +127,12 @@ var game = function(difficulty){
 		//moving on... either to the next target or to the win screen
 		if(this.newGame.missions.length){
 			//three new cards
-			this.newGame.giftCards.draw(3);
+			for(var i = 0; i<=3; i++){
+				if(!this.newGame.giftCards.draw()){
+					//out of cards
+					this.lose('deck');
+				}
+			}
 			//next target
 			document.getElementById('content').innerHTML = ich.nextmission({targets: this.newGame.missions.length, difficulty: this.difficulty});
 		} else {
