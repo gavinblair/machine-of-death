@@ -17,7 +17,7 @@
 		<script src="timer.js?v=1"></script>
 		<script src="lib/ICanHaz.min.js"></script>
 		<script src="lib/toggles.js"></script>
-		<script src="game.js?v=37"></script>
+		<script src="game.js?v=38"></script>
 		<script id="splash" type="text/html">
 			<div class="container">
 				<div class="row">
@@ -61,6 +61,19 @@
 			    <div class="span8">
 						<p>Your mission is to eliminate {{difficulty}} targets.</p>
 						<a class="button-main button-block" ontouchstart="app.nextTargetButton()">Get First Target</a>
+			    </div>
+			  </div>
+			</div>
+		</script>
+		<script id="nextmission" type="text/html">
+			<div class="container">
+			  <div class="row">
+			    <div class="span4">
+						<h2>Next Mission</h2>
+			    </div>
+			    <div class="span8">
+						<p>Good job! You have {{targets}} out of {{difficulty}} targets remaining.</p>
+						<a class="button-main button-block" ontouchstart="app.nextTargetButton()">Get Next Target</a>
 			    </div>
 			  </div>
 			</div>
