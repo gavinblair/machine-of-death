@@ -126,6 +126,8 @@ var game = function(difficulty){
 	this.moveOn = function(){
 		//moving on... either to the next target or to the win screen
 		if(this.newGame.missions.length){
+			//three new cards
+			this.newGame.giftCards.draw(3);
 			//next target
 			document.getElementById('content').innerHTML = ich.nextmission({targets: this.newGame.missions.length, difficulty: this.difficulty});
 		} else {
