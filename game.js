@@ -128,7 +128,7 @@ var game = function(difficulty){
 	};
 	this.moveOn = function(){
 		//kill the timer
-		
+		this.timer.pause();
 		//moving on... either to the next target or to the win screen
 		if(this.newGame.missions.length){
 			//discard cards already in play
