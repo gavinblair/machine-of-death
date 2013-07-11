@@ -247,13 +247,51 @@
 			</div>
 		</script>
 		<script id="aftermath" type="text/html">
-			
+			<div class="span4">
+				<h2>Aftermath</h2>
+			</div>
+			<div class="span8">
+				{{^fail}}
+					{{^success}}
+						<p>Congratulations! You have eliminated your target. You still have some time left - let's try to win some extra budget!</p>
+					{{/success}}
+					{{#success}}
+						<p>You still have time - why don't you try another task?</p>
+					{{/success}}
+				{{/fail}}
+				{{#fail}}
+					<p>Ouch, that didn't go so well! You still have time - why don't you try another task?</p>
+				{{/fail}}
+				<p><a ontouchstart="app.aftermathButton()" class="button-main button-block">Get an Aftermath Task</a>
+			</div>
+		</script>
+		<script id="task" type="text/html">
+			<div class="span4">
+				<h2>Task</h2>
+			</div>
+			<div class="span8">
+				<p>Your task:</p>
+				<h2>{{task}}</h2>
+				<p>Your item:</p>
+				<p><a class="button-main" ontouchstart="app.changeDifficulty(this)">{{card}}<span class="count">2</span></a></p>
+				<p><a ontouchstart="app.attemptTaskButton()" class="button-main button-block">Attempt Task</a>
+			</div>
+		</script>
+		<script id="specialist" type="text/html">
+			<div class="span4">
+				<h2>New Specialist</h2>
+			</div>
+			<div class="span8">
+				<p>You succeeded! You win:</p>
+				<p><span class="count">{{card}}</span></p>
+				<p><a ontouchstart="app.aftermathBackButton()" class="button-main button-block">Back</a>
+			</div>
 		</script>
 		<script id="win" type="text/html">
-			
+			you win
 		</script>
 		<script id="lose" type="text/html">
-			
+			you lose
 		</script>
 		<link rel="stylesheet" href="https://app.divshot.com/css/ratchet.css">
 		<link rel="stylesheet" href="style.css?v=9" />
