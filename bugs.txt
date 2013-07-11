@@ -5,3 +5,5 @@ timer switching between screens is kindof weird. put the timer outside of the h2
 reset the timer between targets
 
 "0 targets left. get next target"
+
+finishedtime function is wrong - don't go to the aftermath if time is up
