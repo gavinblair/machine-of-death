@@ -74,8 +74,9 @@ var game = function(difficulty){
 		document.getElementsByTagName("h2")[0].innerHTML = "Time's up!";
 		//have we executed the current target?
 		if(this.newGame.giftCards.hand.length === 0){
-			//if so, get to the aftermath!
-			this.aftermath();
+			//if so, move on to the next target
+			//perhaps a "time's up!" message should go here
+			this.moveOn();
 		} else {
 			//if not, lose!
 			this.lose();
