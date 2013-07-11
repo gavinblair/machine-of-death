@@ -104,10 +104,12 @@ var game = function(difficulty){
 	this.proceedButton = function(){
 		//any more?
 		if(this.newGame.giftCards.hand.length === 0){
-			//that was the last step!
-			this.moveOn();
+			//discard the last card
+			this.newGame.giftCards.discard(this.newGame.giftCards.hand[0]);
+			//that was the last step! go to the aftermath
+			this.aftermath();
 		} else {
-			//back to the execute page
+			//back to the execute page, continue the plan
 			document.getElementById('content').innerHTML = ich.execute({hand: this.newGame.giftCards.hand, target: this.target, hasBudget: this.myBudget.hasBudget()});
 		}
 	};
@@ -127,7 +129,7 @@ var game = function(difficulty){
 		//moving on... either to the next target or to the win screen
 		if(this.newGame.missions.length){
 			//discard cards already in play
-			for(var x in this.newGame.giftCards.hand.length){
+			for(var x in this.newGame.giftCards.hand){
 				this.newGame.giftCards.discard(this.newGame.giftCards.hand[0].card);
 			}
 			//three new cards
@@ -153,7 +155,7 @@ var game = function(difficulty){
 		alert(reason);
 	};
 	this.aftermath = function(){
-		alert(aftermath);
+		document.getElementById('content').innerHTML = ich.aftermath();
 	//if there are no available aftermaths to attempt, win()
 	//otherwise...
 	//still show timer
