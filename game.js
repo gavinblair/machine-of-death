@@ -128,7 +128,7 @@ var game = function(difficulty){
 		if(this.newGame.missions.length){
 			//discard cards already in play
 			for(var x in this.newGame.giftCards.hand.length){
-				this.newGame.giftCards.discard(this.newGame.giftCards.hand[x].card);
+				this.newGame.giftCards.discard(this.newGame.giftCards.hand[0].card);
 			}
 			//three new cards
 			for(var i = 0; i<=3; i++){
