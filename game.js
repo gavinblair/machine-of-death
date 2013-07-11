@@ -145,15 +145,6 @@ var game = function(difficulty){
 			this.win();
 		}
 	};
-	this.win = function(){
-	//if the timer is not up, enter aftermath!
-	//if this isn't the last target, nextTargetButton
-	//if it is, then win the whole game!
-	};
-	this.lose = function(reason){
-		//sorry, you lose.
-		alert(reason);
-	};
 	this.aftermath = function(){
 		this.afterMath = new aftermath();
 		document.getElementById('content').innerHTML = ich.aftermath();
@@ -165,6 +156,37 @@ var game = function(difficulty){
 	//draw a gift card
 	//next step: roll button
 	};
-
+	this.aftermathButton = function(){
+		this.newGame.giftCards.draw();
+		this.afterMath.task = this.afterMath.tryOne();
+		if(this.afterMath.task !== undefined){
+			document.getElementById('content').innerHTML = ich.task({task:this.afterMath.task, card: this.newGame.giftCards.hand[0].card});
+		} else {
+			this.moveOn();
+		}
+	};
+	this.attemptTaskButton = function(){
+		if(this.newGame.giftCards.roll(this.newGame.giftCards.hand[0].card)){
+			//success
+			var card = "GAVIN";
+			document.getElementById('content').innerHTML = ich.specialist({card: card});
+		} else {
+			//fail
+			document.getElementById('content').innerHTML = ich.aftermath({fail:true});
+			
+		}
+	};
+	this.aftermathBackButton = function(){
+		document.getElementById('content').innerHTML = ich.aftermath({success:true});
+	};
+	this.win = function(){
+	//if the timer is not up, enter aftermath!
+	//if this isn't the last target, nextTargetButton
+	//if it is, then win the whole game!
+	};
+	this.lose = function(reason){
+		//sorry, you lose.
+		alert(reason);
+	};
 };
 var app = new game(4);
