@@ -1,5 +1,7 @@
 sometimes an empty gift is drawn. possibly an off-by-one error.
 
-timer switching between screens is kindof weird.
+timer switching between screens is kindof weird. put the timer outside of the h2. keep the on/off switch.
+
+reset the timer between targets
 
 "0 targets left. get next target"
