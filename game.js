@@ -126,10 +126,12 @@ var game = function(difficulty){
 		}
 	};
 	this.moveOn = function(){
+		//kill the timer
+		
 		//moving on... either to the next target or to the win screen
 		if(this.newGame.missions.length){
 			//discard cards already in play
-			for(var x in this.newGame.giftCards.hand){
+			for(var x = 0; x <= this.newGame.giftCards.hand.length; x++){
 				this.newGame.giftCards.discard(this.newGame.giftCards.hand[0].card);
 			}
 			//three new cards
