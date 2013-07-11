@@ -155,6 +155,7 @@ var game = function(difficulty){
 		alert(reason);
 	};
 	this.aftermath = function(){
+		this.afterMath = new aftermath();
 		document.getElementById('content').innerHTML = ich.aftermath();
 	//if there are no available aftermaths to attempt, win()
 	//otherwise...
