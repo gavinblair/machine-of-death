@@ -2,7 +2,7 @@ var gifts = function() {
 	this.deck = [
 		'FOOD',
 		'SPORTS EQUIPMENT',
-		'SPORTS EQUIPMENT',/*
+		'SPORTS EQUIPMENT',
 		'SPORTS EQUIPMENT',
 		'MUSICAL INSTRUMENT',
 		'MUSICAL INSTRUMENT',
@@ -129,7 +129,7 @@ var gifts = function() {
 		'SPOILED FOOD',
 		'SPOILED FOOD',
 		'A RAW MATERIAL',
-		'A RAW MATERIAL'*/
+		'A RAW MATERIAL'
 	];
 	this.hand = [];
 
