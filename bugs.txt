@@ -1,7 +1,9 @@
 timer switching between screens is kindof weird. put the timer outside of the h2. keep the on/off switch.
 
-reset the timer between targets
+reset the timer between targets (start a new timer isn't working)
 
 "0 targets left. get next target"
 
 finishedtime function is wrong - don't go to the aftermath if time is up
+
+draw at black market stage - if deck runs out, you lose
