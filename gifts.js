@@ -1,8 +1,8 @@
 var gifts = function() {
 	this.deck = [
 		'FOOD',
-		'SPORTS EQUIPMENT',/*
 		'SPORTS EQUIPMENT',
+		'SPORTS EQUIPMENT',/*
 		'SPORTS EQUIPMENT',
 		'MUSICAL INSTRUMENT',
 		'MUSICAL INSTRUMENT',
