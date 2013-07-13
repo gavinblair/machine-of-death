@@ -27,8 +27,10 @@
 				<img id="bubble" src="http://i.imgur.com/a8ppEcV.jpg" width="50%">
 				<img src="http://i.imgur.com/NmMMYHb.jpg" width="25%"> 
 			</div>
-			<a ontouchstart="app.startButton()" class="button-main button-block">New Game</a>
-			<a ontouchstart="app.aboutButton()" class="button button-block">About</a>
+			<p>
+				<a ontouchstart="app.startButton()" class="button-main button-block">New Game</a>
+				<a ontouchstart="app.aboutButton()" class="button button-block">About</a>
+			</p>
 		</script>
 		<script id="about" type="text/html">
 			<div class="span4">
@@ -41,7 +43,9 @@
 				<p>
 					I just really like it.
 				</p>
-				<a class="button-main button-block" ontouchstart="app.backButton()">Back</a>
+				<p>
+					<a class="button-main button-block" ontouchstart="app.backButton()">Back</a>
+				</p>
 			</div>
 		</script>
 		<script id="start" type="text/html">
@@ -50,7 +54,9 @@
 			</div>
 			<div class="span8">
 				<p>Your mission is to eliminate {{difficulty}} targets.</p>
-				<a class="button-main button-block" ontouchstart="app.nextTargetButton()">Get First Target</a>
+				<p>
+					<a class="button-main button-block" ontouchstart="app.nextTargetButton()">Get First Target</a>
+				</p>
 			</div>
 		</script>
 		<script id="nextmission" type="text/html">
@@ -59,7 +65,9 @@
 			</div>
 			<div class="span8">
 				<p>Good job! You have {{targets}} out of {{difficulty}} targets remaining.</p>
-				<a class="button-main button-block" ontouchstart="app.nextTargetButton()">Get Next Target</a>
+				<p>
+					<a class="button-main button-block" ontouchstart="app.nextTargetButton()">Get Next Target</a>
+				</p>
 			</div>
 		</script>
 		<script id="target" type="text/html">
@@ -76,7 +84,9 @@
 					<strong>Location:</strong> {{target.location}}<br />
 				</p>
 				{{#button}}
-					<a class="button-main button-block" ontouchstart="app.predictionButton()">Read Prediction</a>
+					<p>
+						<a class="button-main button-block" ontouchstart="app.predictionButton()">Read Prediction</a>
+					</p>
 				{{/button}}
 			</div>
 		</script>
@@ -99,7 +109,9 @@
 					{{/target.knowsPrediction}}
 				</p>
 				{{#button}}
-					<a class="button-main button-block" ontouchstart="app.marketButton()">Visit Black Market</a>
+					<p>
+						<a class="button-main button-block" ontouchstart="app.marketButton()">Visit Black Market</a>
+					</p>
 				{{/button}}
 			</div>
 		</script>
@@ -114,7 +126,9 @@
 				{{#hand}}
 					<p><span class="count">{{card}}</span></p>
 				{{/hand}}
-				<a class="button-main button-block" ontouchstart="app.planButton()">Make a Plan</a>
+				<p>
+					<a class="button-main button-block" ontouchstart="app.planButton()">Make a Plan</a>
+				</p>
 			</div>
 		</script>
 		<script id="planning" type="text/html">
@@ -143,9 +157,11 @@
 			</div>
 			{{#hasBudget}}
 				You have items in your budget.
-				<button ontouchstart="app.budgetButton()">Check out the budget</button>
+				<a ontouchstart="app.budgetButton()">Check out the budget</button>
 			{{/hasBudget}}
-			<a class="button-main button-block" ontouchstart="app.executeButton()">EXECUTE</a>
+			<p>
+				<a class="button-main button-block" ontouchstart="app.executeButton()">EXECUTE</a>
+			</p>
 		</script>
 		<script id="budget" type="text/html">
 			
@@ -203,7 +219,9 @@
 				<p>
 					Your use of <span class="count">{{card}}</span> has failed horribly. Time to draw a new item and rethink the rest of your plan!
 				</p>
-				<a class="button-negative button-block" ontouchstart="app.regroupButton()">Regroup</a>
+				<p>
+					<a class="button-negative button-block" ontouchstart="app.regroupButton()">Regroup</a>
+				</p>
 			</div>
 		</script>
 		<script id="aftermath" type="text/html">
