@@ -1,3 +1,5 @@
+next target - start with one too many black market cards
+
 timer switching between screens is kindof weird. put the timer outside of the h2. keep the on/off switch.
 
 reset the timer between targets (start a new timer isn't working)
