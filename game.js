@@ -62,7 +62,7 @@ var game = function(difficulty){
 	};
 	this.executeButton = function(){
 		//start a 90 second timer if it hasn't already started
-		if(this.timer === undefined){
+		if(this.timer === undefined || this.timer === null){
 			this.timer = new countdown(90, updateTimer, finishedTime);
 		}
 		document.getElementById('content').innerHTML = ich.execute({hand: this.newGame.giftCards.hand, target: this.target, hasBudget: this.myBudget.hasBudget()});
@@ -129,6 +129,7 @@ var game = function(difficulty){
 	this.moveOn = function(){
 		//kill the timer
 		this.timer.pause();
+		this.timer = null;
 		//moving on... either to the next target or to the win screen
 		if(this.newGame.missions.length){
 			//discard cards already in play
