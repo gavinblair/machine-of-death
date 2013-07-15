@@ -135,10 +135,8 @@ var game = function(difficulty){
 			for(var x = 0; x <= this.newGame.giftCards.hand.length; x++){
 				this.newGame.giftCards.discard(this.newGame.giftCards.hand[0].card);
 			}
-			console.log('cards after discarding all:');
-			console.log(this.newGame.giftCards.hand);
 			//three new cards
-			for(var i = 0; i<=3; i++){
+			for(var i = 1; i<=3; i++){
 				if(!this.newGame.giftCards.draw()){
 					//out of cards
 					this.lose('deck');
