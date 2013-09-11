@@ -1,4 +1,4 @@
-var targets = {
+var Targets = {
 	firstNames: [
 		'Gavin',
 		'Zoe',
@@ -3921,12 +3921,12 @@ var targets = {
 	},
 	generateTarget: function(){
 		return {
-			firstName: targets.getRandom(targets.firstNames),
-			lastName: targets.getRandom(targets.lastNames),
-			excitedBy: targets.getRandom(targets.excitedBy),
-			hinderedBy: targets.getRandom(targets.hinderedBy),
-			location: targets.getRandom(targets.locations),
-			prediction: targets.getRandom(targets.predictions),
+			firstName: Targets.getRandom(Targets.firstNames),
+			lastName: Targets.getRandom(Targets.lastNames),
+			excitedBy: Targets.getRandom(Targets.excitedBy),
+			hinderedBy: Targets.getRandom(Targets.hinderedBy),
+			location: Targets.getRandom(Targets.locations),
+			prediction: Targets.getRandom(Targets.predictions),
 			knowsPrediction: Math.floor(Math.random()*2)
 		};
 	}

@@ -8,24 +8,40 @@
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1.0, user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta http-equiv="cleartype" content="on">
-		<script src="budget.js?v=1"></script>
+		<!--(if target test)>
+		    <link rel="stylesheet" href="qunit.css">
+
+		    <script src="../budget.js"></script>
+			<script src="../targets.js"></script>
+			<script src="../session.js"></script>
+			<script src="../gifts.js"></script>
+			<script src="../specialists.js"></script>
+			<script src="../aftermath.js"></script>
+			<script src="../timer.js"></script>
+			<script src="../lib/ICanHaz.min.js"></script>
+			<script src="../lib/toggles.js"></script>
+			<script src="../game.js"></script>
+		  <!(endif)-->
+		  <!--(if target dev)><!-->
+		<script src="budget.js"></script>
 		<script src="targets.js"></script>
 		<script src="session.js"></script>
-		<script src="gifts.js?v=14"></script>
+		<script src="gifts.js"></script>
 		<script src="specialists.js"></script>
 		<script src="aftermath.js"></script>
-		<script src="timer.js?v=1"></script>
+		<script src="timer.js"></script>
 		<script src="lib/ICanHaz.min.js"></script>
 		<script src="lib/toggles.js"></script>
-		<script src="game.js?v=49"></script>
+		<script src="game.js"></script>
+		<!--<!(endif)-->
 		<script id="splash" type="text/html">
 			<div class="span4">
 				<h1>Machine of Death</h1>
 				<h2>The Game of Creative Assassination</h2>
 			</div>
 			<div class="span8">
-				<img id="bubble" src="http://i.imgur.com/a8ppEcV.jpg" width="50%">
-				<img src="http://i.imgur.com/NmMMYHb.jpg" width="25%"> 
+				<img id="bubble" src="img/quote.jpg" width="50%">
+				<img src="img/boss.jpg" width="25%"> 
 			</div>
 			<p>
 				<a ontouchstart="app.startButton()" class="button-main button-block">New Game</a>
@@ -272,9 +288,15 @@
 			you lose
 		</script>
 		<link rel="stylesheet" href="https://app.divshot.com/css/ratchet.css">
-		<link rel="stylesheet" href="style.css?v=9" />
+		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body onload="document.getElementById('content').innerHTML = ich.splash()">
 		<div id="content" class="content"></div>
+		<!--(if target test)>
+		    <div id="qunit"></div>
+		    <div id="qunit-fixture"></div>
+		    <script src="qunit.js"></script>
+		    <script src="tests.js"></script>
+		  <!(endif)-->
 	</body>
 </html>

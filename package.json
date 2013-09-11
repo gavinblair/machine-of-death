@@ -1,0 +1,14 @@
+{
+  "name": "mod",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "author": "Gavin Blair <gavinblair@gmail.com>",
+  "repository": { "type": "git", "url": "git://github.com/gavinblair/mod.git" },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "main": "index"
+}

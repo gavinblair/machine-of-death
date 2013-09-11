@@ -1,4 +1,4 @@
-var countdown = function(from, updateCallback, finishedCallback){
+var Countdown = function(from, updateCallback, finishedCallback){
   this.current = from;
   var t = this;
   

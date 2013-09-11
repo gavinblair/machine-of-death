@@ -1,0 +1,200 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Machine of Death</title><meta name="description" content="The Game of Creative Assassination"><meta name="HandheldFriendly" content="True"><meta name="viewport" content="initial-scale=1, maximum-scale=1.0, user-scalable=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta http-equiv="cleartype" content="on"><script src="budget.js"></script><script src="targets.js"></script><script src="session.js"></script><script src="gifts.js"></script><script src="specialists.js"></script><script src="aftermath.js"></script><script src="timer.js"></script><script src="lib/ICanHaz.min.js"></script><script src="lib/toggles.js"></script><script src="game.js"></script><script id="splash" type="text/html"><div class="span4">
+				<h1>Machine of Death</h1>
+				<h2>The Game of Creative Assassination</h2>
+			</div>
+			<div class="span8">
+				<img id="bubble" src="img/quote.jpg" width="50%">
+				<img src="img/boss.jpg" width="25%"> 
+			</div>
+			<p>
+				<a ontouchstart="app.startButton()" class="button-main button-block">New Game</a>
+				<a ontouchstart="app.aboutButton()" class="button button-block">About</a>
+			</p></script><script id="about" type="text/html"><div class="span4">
+				<h2>About</h2>
+			</div>
+			<div class="span8">
+				<p>
+					This app was created by <a href="http://twitter.com/gavinblair">@gavinblair</a>. <a href="http://machineofdeath.net/">Machine of Death</a> is not mine, however.
+				</p>
+				<p>
+					I just really like it.
+				</p>
+				<p>
+					<a class="button-main button-block" ontouchstart="app.backButton()">Back</a>
+				</p>
+			</div></script><script id="start" type="text/html"><div class="span4">
+				<h2>New Game</h2>
+			</div>
+			<div class="span8">
+				<p>Your mission is to eliminate {{difficulty}} targets.</p>
+				<p>
+					<a class="button-main button-block" ontouchstart="app.nextTargetButton()">Get First Target</a>
+				</p>
+			</div></script><script id="nextmission" type="text/html"><div class="span4">
+				<h2>Next Mission</h2>
+			</div>
+			<div class="span8">
+				<p>Good job! You have {{targets}} out of {{difficulty}} targets remaining.</p>
+				<p>
+					<a class="button-main button-block" ontouchstart="app.nextTargetButton()">Get Next Target</a>
+				</p>
+			</div></script><script id="target" type="text/html">{{#button}}
+				<div class="span4">
+					<h2>Target</h2>
+				</div>
+			{{/button}}
+			<div class="span8">
+				<p>
+					<strong>Name:</strong> {{target.firstName}} {{target.lastName}}<br />
+					<strong>Excited By:</strong> {{target.excitedBy}}<br />
+					<strong>Hindered By:</strong> {{target.hinderedBy}}<br />
+					<strong>Location:</strong> {{target.location}}<br />
+				</p>
+				{{#button}}
+					<p>
+						<a class="button-main button-block" ontouchstart="app.predictionButton()">Read Prediction</a>
+					</p>
+				{{/button}}
+			</div></script><script id="prediction" type="text/html">{{#button}}
+				<div class="span4">
+					<h2>Prediction</h2>
+				</div>
+			{{/button}}
+			<div class="span8">
+				<p>
+					<h2>{{target.prediction}}</h2>
+				</p>
+				<p>
+					{{#target.knowsPrediction}}
+						Your target knows their prediction. This will make things more difficult.
+					{{/target.knowsPrediction}}
+					{{^target.knowsPrediction}}
+						Thankfully, your target does not know their prediction.
+					{{/target.knowsPrediction}}
+				</p>
+				{{#button}}
+					<p>
+						<a class="button-main button-block" ontouchstart="app.marketButton()">Visit Black Market</a>
+					</p>
+				{{/button}}
+			</div></script><script id="blackmarket" type="text/html"><div class="span4">
+				<h2>Black Market</h2>
+			</div>
+			<div class="span8">
+				<p>
+					Here is your hand from the Black Market.
+				</p>
+				{{#hand}}
+					<p><span class="count">{{card}}</span></p>
+				{{/hand}}
+				<p>
+					<a class="button-main button-block" ontouchstart="app.planButton()">Make a Plan</a>
+				</p>
+			</div></script><script id="planning" type="text/html">{{^playing}}
+				<div class="span4">
+					<h2>Make a Plan</h2>
+				</div>
+			{{/playing}}
+			{{#playing}}
+				<div class="span4">
+					<h2>{{timer}}</h2>
+	    				<div onclick="app.toggleTimer(this)" class="toggle active">
+								<div class="toggle-handle"></div>
+	    				</div>
+				</div>
+			{{/playing}}
+			{{>target}}
+			{{>prediction}}
+			<div class="span8">
+				<p>
+					Devise an action for each of your items. Choose a difficulty for each action below. When you're finished, execute your plan.
+				</p>
+				{{#hand}}
+					<p><a class="button-main" ontouchstart="app.changeDifficulty(this)">{{card}}<span class="count">2</span></a></p>
+				{{/hand}}
+			</div>
+			{{#hasBudget}}
+				You have items in your budget.
+				<a ontouchstart="app.budgetButton()">Check out the budget</button>
+			{{/hasBudget}}
+			<p>
+				<a class="button-main button-block" ontouchstart="app.executeButton()">EXECUTE</a>
+			</p></script><script id="budget" type="text/html"></script><script id="execute" type="text/html"><div class="span4">
+				<h2>90</h2>
+    				<div onclick="app.toggleTimer(this)" class="toggle active">
+							<div class="toggle-handle"></div>
+						</div>
+			</div>
+			{{>target}}
+			{{>prediction}}
+			<div class="span8">
+				<p>
+					You may now attempt each of your actions. Click on the appropriate item to attempt the action. If you fail, you will draw a new item and will have to revise the remainder of your plan!
+				</p>
+				{{#hand}}
+					<p><a class="button-positive" ontouchstart="app.rollButton('{{card}}', this)"><em>Attempt</em> {{card}}<span class="count">{{difficulty}}</span></a></p>
+				{{/hand}}
+			</div></script><script id="roll" type="text/html"><div class="span4">
+				<h2>Attempt</h2>
+			</div>
+			<div class="span8">
+				{{#success}}
+					<h1>Success!</h1>
+					<p><a ontouchstart="app.executeButton()" class="button-main button-block">Continue</a>
+				{{/success}}
+				{{^success}}
+					<h1>Fail!</h1>
+					<p><a ontouchstart="app.drawButton()" class="button-main button-block">Draw a New Gift Card</a></p>
+				{{/success}}
+				
+			</div></script><script id="success" type="text/html"><div class="span4">
+				<h2>SUCCESS!</h2>
+			</div>
+			<div class="span8">
+				<p>
+					You have successfully used <span class="count">{{card}}</span>. On to the next stage of your plan!
+				</p>
+				<p><a class="button-positive button-block" ontouchstart="app.proceedButton()">Proceed</a></p>
+			</div></script><script id="fail" type="text/html"><div class="span4">
+				<h2>FAIL!</h2>
+			</div>
+			<div class="span8">
+				<p>
+					Your use of <span class="count">{{card}}</span> has failed horribly. Time to draw a new item and rethink the rest of your plan!
+				</p>
+				<p>
+					<a class="button-negative button-block" ontouchstart="app.regroupButton()">Regroup</a>
+				</p>
+			</div></script><script id="aftermath" type="text/html"><div class="span4">
+				<h2>Aftermath</h2>
+			</div>
+			<div class="span8">
+				{{^fail}}
+					{{^success}}
+						<p>Congratulations! You have eliminated your target. You still have some time left - let's try to win some extra budget!</p>
+					{{/success}}
+					{{#success}}
+						<p>You still have time - why don't you try another task?</p>
+					{{/success}}
+				{{/fail}}
+				{{#fail}}
+					<p>Ouch, that didn't go so well! You still have time - why don't you try another task?</p>
+				{{/fail}}
+				<p><a ontouchstart="app.aftermathButton()" class="button-main button-block">Get an Aftermath Task</a>
+			</div></script><script id="task" type="text/html"><div class="span4">
+				<h2>Task</h2>
+			</div>
+			<div class="span8">
+				<p>Your task:</p>
+				<h2>{{task}}</h2>
+				<p>Your item:</p>
+				<p><a class="button-main" ontouchstart="app.changeDifficulty(this)">{{card}}<span class="count">2</span></a></p>
+				<p><a ontouchstart="app.attemptTaskButton()" class="button-main button-block">Attempt Task</a>
+			</div></script><script id="specialist" type="text/html"><div class="span4">
+				<h2>New Specialist</h2>
+			</div>
+			<div class="span8">
+				<p>You succeeded! You win:</p>
+				<p><span class="count">{{card}}</span></p>
+				<p><a ontouchstart="app.aftermathBackButton()" class="button-main button-block">Back</a>
+			</div></script><script id="win" type="text/html">you win</script><script id="lose" type="text/html">you lose</script><link rel="stylesheet" href="https://app.divshot.com/css/ratchet.css"><link rel="stylesheet" href="style.css"></head><body onload="document.getElementById('content').innerHTML = ich.splash()"><div id="content" class="content"></div></body></html>

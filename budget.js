@@ -1,4 +1,4 @@
-var budget = function() {
+var Budget = function() {
 	this.hand = [];
 	this.add = function(card){
 		this.hand.push(card);

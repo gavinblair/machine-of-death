@@ -1,4 +1,4 @@
-var gifts = function() {
+var Gifts = function() {
 	this.deck = [
 		'FOOD',
 		'SPORTS EQUIPMENT',
@@ -148,11 +148,11 @@ var gifts = function() {
 			this.deck = temp;
 			for(var y in this.hand){
 				if(this.hand[y].card === result){
-					result = "ANOTHER "+result;
+					result = 'ANOTHER '+result;
 				}
 			}
-			if(result.indexOf("ANOTHER ANOTHER ") === 0){
-				result = result.replace("ANOTHER ANOTHER ", "YET ANOTHER ");
+			if(result.indexOf('ANOTHER ANOTHER ') === 0){
+				result = result.replace('ANOTHER ANOTHER ', 'YET ANOTHER ');
 			}
 			
 			this.hand.push({card:result, difficulty: 2});

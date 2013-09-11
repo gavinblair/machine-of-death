@@ -1,4 +1,4 @@
-var aftermath = function() {
+var Aftermath = function() {
 	this.options = [
 		'Destroy the evidence',
 		'Confuse the witnesses',

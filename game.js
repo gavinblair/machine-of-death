@@ -1,3 +1,4 @@
+/*global Session: true, Budget: true, Aftermath: true, Countdown: true, MBP: true, jQuery: false, FastClick: false, Modernizr: false, ich: false */
 /*
 requires:
 ICanHaz.js
@@ -6,14 +7,14 @@ targets.js
 session.js
 gifts.js
 */
-var game = function(difficulty){
-	this.myBudget = new budget();
+var Game = function(difficulty){
+	this.myBudget = new Budget();
 	this.difficulty = difficulty;
 
 	//EVENTS
 	this.startButton = function(){
 		//generate the game
-		this.newGame = new session(this.difficulty);
+		this.newGame = new Session(this.difficulty);
 
 		//show the game intro screen
 		document.getElementById('content').innerHTML = ich.start({difficulty: this.difficulty});
@@ -47,14 +48,14 @@ var game = function(difficulty){
 		document.getElementById('content').innerHTML = ich.planning({target: this.target, hand: this.newGame.giftCards.hand, hasBudget: this.myBudget.hasBudget()});
 	};
 	this.changeDifficulty = function(e){
-		var oldnum = parseInt(e.children[0].innerHTML);
+		var oldnum = parseInt(e.children[0].innerHTML,10);
 		var newnum = oldnum + 1;
 		if(newnum > 6) { newnum = 2; }
 		e.children[0].innerHTML = newnum;
 		
 		for(var i in this.newGame.giftCards.hand){
 			//so we can add .difficulty
-			if((this.newGame.giftCards.hand[i].card+newnum) == e.innerHTML.replace(/<[^>]*>/g, "")){
+			if((this.newGame.giftCards.hand[i].card+newnum) == e.innerHTML.replace(/<[^>]*>/g, '')){
 				this.newGame.giftCards.hand[i].difficulty = newnum;
 				break;
 			}
@@ -63,19 +64,19 @@ var game = function(difficulty){
 	this.executeButton = function(){
 		//start a 90 second timer if it hasn't already started
 		if(this.timer === undefined || this.timer === null){
-			this.timer = new countdown(90, updateTimer, finishedTime);
+			this.timer = new Countdown(90, updateTimer, finishedTime);
 		}
 		document.getElementById('content').innerHTML = ich.execute({hand: this.newGame.giftCards.hand, target: this.target, hasBudget: this.myBudget.hasBudget()});
 	};
 	var updateTimer = function(t){
-		document.getElementsByTagName("h2")[0].innerHTML = t;
+		document.getElementsByTagName('h2')[0].innerHTML = t;
 	};
 	var finishedTime = function(){
-		document.getElementsByTagName("h2")[0].innerHTML = "Time's up!";
+		document.getElementsByTagName('h2')[0].innerHTML = 'Time\'s up!';
 		//have we executed the current target?
 		if(this.newGame.giftCards.hand.length === 0){
 			//if so, move on to the next target
-			//perhaps a "time's up!" message should go here
+			//perhaps a 'time's up!' message should go here
 			this.moveOn();
 		} else {
 			//if not, lose!
@@ -83,7 +84,7 @@ var game = function(difficulty){
 		}
 	};
 	this.toggleTimer = function(e){
-		if(e.className.indexOf("active") !== -1){
+		if(e.className.indexOf('active') !== -1){
 			this.timer.resume();
 		} else {
 			this.timer.pause();
@@ -150,7 +151,7 @@ var game = function(difficulty){
 		}
 	};
 	this.aftermath = function(){
-		this.afterMath = new aftermath();
+		this.afterMath = new Aftermath();
 		document.getElementById('content').innerHTML = ich.aftermath();
 	//if there are no available aftermaths to attempt, win()
 	//otherwise...
@@ -172,7 +173,7 @@ var game = function(difficulty){
 	this.attemptTaskButton = function(){
 		if(this.newGame.giftCards.roll(this.newGame.giftCards.hand[0].card)){
 			//success
-			var card = "GAVIN";
+			var card = 'GAVIN';
 			document.getElementById('content').innerHTML = ich.specialist({card: card});
 		} else {
 			//fail
@@ -193,4 +194,4 @@ var game = function(difficulty){
 		alert(reason);
 	};
 };
-var app = new game(4);
+var app = new Game(4);
